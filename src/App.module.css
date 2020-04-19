@@ -1,4 +1,15 @@
 .App {
+  background-color: black;
+  display: flex;
+  align-content: center;
+}
+
+
+/* 
+
+CSS for 'Website In Development' placeholder
+
+.App {
   margin: 33vh auto;
   text-align: center;
   align-content: center;
@@ -10,7 +21,7 @@
 .App h1 {
   color: rgba(0, 200, 255, 0.5);
   text-shadow: 3px 3px 5px rgba(0, 200, 255, 0.658);
-  /* background-color: rgba(25, 25, 25, 1); */
+  /* background-color: rgba(25, 25, 25, 1); 
   padding: 15px;
   border-radius: 5px;
   animation-name: boxGlow;
@@ -41,4 +52,6 @@
     box-shadow: 3px 3px 4px rgba(255, 0, 221, 0.5);
     border: 1px solid rgba(255, 0, 221, 0.25);
   }
-}
+} */
+
+

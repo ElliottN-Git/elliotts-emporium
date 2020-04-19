@@ -5,7 +5,7 @@ import classes from './App.module.css';
 //
 
 //Components
-import Layout from './Components/Layout/Layout';
+import Layout from './Containers/Layout/Layout';
 import Dashboard from './Containers/Dashboard/Dashboard';
 //
 
