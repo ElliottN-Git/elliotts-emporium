@@ -14,6 +14,7 @@ export default class Layout extends Component {
         return (
             <Aux>
                 <main className={classes.Content}>
+                <h1>Website In Development...</h1>
                     {this.props.children}
                 </main>
             </Aux>

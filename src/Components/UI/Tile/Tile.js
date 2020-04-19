@@ -7,6 +7,8 @@ import classes from './Tile.module.css';
 //
 
 const Tile = (props) => {
+    //storing the filename for the image in the logo variable and appending to 
+    //the relative path for assets using template literal
     const logo = props.image;
 
     return (

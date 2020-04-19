@@ -13,7 +13,6 @@ function App() {
   return (
     <Layout className={classes.App}>
       <Dashboard />
-      <h1>Website In Development...</h1>
     </Layout>
   );
 }
