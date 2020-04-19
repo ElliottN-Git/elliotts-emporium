@@ -1,8 +1,8 @@
 .Tile {
     padding: 0;
     margin: 5vw;
-    width: 20vw;
-    height: 20vw;
+    width: 15vw;
+    height: 15vw;
     background-color: white;
     display: flex;
     border: 1px solid #fff;
