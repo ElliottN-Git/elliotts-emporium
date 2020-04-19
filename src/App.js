@@ -1,11 +1,19 @@
 import React from 'react';
-import './App.css';
+
+//CSS
+import classes from './App.module.css';
+//
+
+//Components
+import Layout from './Containers/Layout/Layout';
+import Dashboard from './Containers/Dashboard/Dashboard';
+//
 
 function App() {
   return (
-    <div className="App">
-      <h1>Website In Development...</h1>
-    </div>
+    <Layout className={classes.App}>
+      <Dashboard />
+    </Layout>
   );
 }
 
