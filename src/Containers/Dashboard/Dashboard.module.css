@@ -4,4 +4,7 @@
     background-color: rgba(25,25,25,1);
     display: flex;
     justify-content: center;
+    position: relative;
+    top: 1000px;
+    width: 100%;
 }

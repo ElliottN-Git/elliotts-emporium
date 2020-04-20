@@ -1,5 +1,10 @@
 /* CSS for 'Website In Development' placeholder */
+.Content {
+    flex-direction: column;
+}
+
 .Content h1 {
+    z-index: 10;
     margin: 10px;
     text-align: center;
     color: rgba(0, 200, 255, 0.5);

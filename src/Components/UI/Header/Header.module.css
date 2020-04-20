@@ -1,0 +1,8 @@
+.Header img {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateZ(0px);
+}
