@@ -1,0 +1,19 @@
+.Header {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-image: url('../../../assets/images/headerImgSpace.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Header img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    top: 0;
+    left: 0;
+    /* transform: translateZ(0px); */
+}

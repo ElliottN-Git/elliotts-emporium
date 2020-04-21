@@ -1,5 +1,6 @@
+/* (perspective — translateZ(#px)) / perspective = scaleFactor */
+
 .App {
   background-color: black;
-  display: flex;
   align-content: center;
 }
