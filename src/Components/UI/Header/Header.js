@@ -10,7 +10,7 @@ import classes from './Header.module.css';
 //
 
 //Image import
-import headerImg from '../../../assets/images/headerImgSpace.jpg';
+// import headerImg from '../../../assets/images/headerImgSpace.jpg';
 //
 const Header = (props) => {
     return (

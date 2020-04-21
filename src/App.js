@@ -9,6 +9,7 @@ import Layout from './Containers/Layout/Layout';
 import Dashboard from './Containers/Dashboard/Dashboard';
 import Header from './Components/UI/Header/Header';
 import HeaderText from './Components/UI/HeaderText/HeaderText';
+import Background from './Components/UI/Backgrounds/Background';
 //
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <HeaderText />
         </Header>
         <Dashboard />
+        <Background />
       </Layout>
     </div>
   );
