@@ -10,9 +10,3 @@
     background-image: url('../../../assets/images/BGimg2.jpg');
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media (max-width: 600px) {
-    .Background {
-        height: 800px;
-    }
-} 
