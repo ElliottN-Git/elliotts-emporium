@@ -16,10 +16,12 @@ import ResumeTile from '../../Containers/ResumeTile/ResumeTile';
 import Modal from '../../Components/UI/Modal/Modal';
 //
 
+
 export default class Layout extends Component {
     state = {
         showResume: false
     }
+    
 
     resumeOpenedHandler = (event) => {
         this.setState({ showResume: true });
