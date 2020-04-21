@@ -1,7 +1,6 @@
 .Background {
     display: block;
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-    height: calc(var(--vh, 1vh) * 100);
+    height: 100vh;
     width: 100%;
     position: relative;
     background-attachment: fixed;
@@ -10,3 +9,10 @@
     background-size: cover;
     background-image: url('../../../assets/images/BGimg2.jpg');
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .Background {
+        height: 800px;
+    }
+} 
