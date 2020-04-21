@@ -13,9 +13,10 @@ import classes from './Header.module.css';
 // import headerImg from '../../../assets/images/headerImgSpace.jpg';
 //
 
+
 const Header = (props) => {
     return (
-        <div className={classes.Header}>
+        <div className={classes.Header} style={{ height: `${props.viewPortHeight}` }}>
             {/* <img src={headerImg} alt=''/> */}
             {props.children}
         </div>
