@@ -12,13 +12,14 @@
 }
 
 .InDevelopmentBanner {
-    background-color: black;
+    background-color: rgba(10, 10, 10, 0.8);
     z-index: 10;
-    height: 10vh;
+    height: 3vw;
+    width: 90vw;
     position: fixed;
     top: 0;
 
-    /* Glow effect */
+    /* Text glow effect */
     color: rgba(0, 200, 255, 0.5);
     text-shadow: 3px 3px 5px rgba(0, 200, 255, 0.658);
     padding: 15px;
@@ -27,6 +28,14 @@
     animation-duration: 5s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
+}
+
+.InDevelopmentBanner h1 {
+    font-size: 2vw;
+    margin: 0;
+    position: absolute;
+    height: auto;
+    width: inherit;
 }
 
 

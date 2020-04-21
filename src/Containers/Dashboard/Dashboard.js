@@ -12,8 +12,8 @@ import Tile from '../../Components/UI/Tile/Tile';
 //
 
 const tiles = [
-    { tileName: 'LinkedIn', link: 'https://www.linkedin.com/', image: 'Linkedin-logo-full.jpg' },
-    { tileName: 'GitHub', link: 'https://www.github.com/', image: 'GitHub-Logo1.png' }
+    { id: 1, tileName: 'LinkedIn', link: 'https://www.linkedin.com/', image: 'Linkedin-logo-full.jpg' },
+    { id: 2, tileName: 'GitHub', link: 'https://www.github.com/', image: 'GitHub-Logo1.png' }
 ]
 
 export default class Dashboard extends Component {
@@ -24,6 +24,7 @@ export default class Dashboard extends Component {
                 <div className={classes.Dashboard}>
                     {tiles.map(tile => (
                         <Tile
+                            key={tile.id}
                             tileName={tile.tileName}
                             link={tile.link}
                             image={tile.image}
