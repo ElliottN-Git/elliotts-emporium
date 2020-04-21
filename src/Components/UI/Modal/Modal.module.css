@@ -2,14 +2,15 @@
     position: relative;
     z-index: -1;
     background-color: white;
-    width: auto;
-    height: 75vh;
+    width: 80vw;
+    height: 80vh;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
     padding: 0;
-    overflow-y: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
     top: 10%;
-    box-sizing: border-box;
+    left: 10%;
     transition: all 0.3s ease-out;
 }
 
@@ -18,9 +19,16 @@
     height: inherit;
 }
 
-@media (min-width: 600px) {
+@media (max-width: 400px) {
+    .Modal {
+        width: 90vw;
+        left: 5%;
+    }
+}
+
+/* @media (min-width: 600px) {
     .Modal {
         width: 500px;
         left: calc(50% - 250px);
     }
-}
+} */

@@ -14,7 +14,7 @@
 .InDevelopmentBanner {
     background-color: rgba(10, 10, 10, 0.8);
     z-index: 10;
-    height: 10vh;
+    height: 3vw;
     width: 90vw;
     position: fixed;
     top: 0;
@@ -28,6 +28,14 @@
     animation-duration: 5s;
     animation-direction: alternate;
     animation-iteration-count: infinite;
+}
+
+.InDevelopmentBanner h1 {
+    font-size: 2vw;
+    margin: 0;
+    position: absolute;
+    height: auto;
+    width: inherit;
 }
 
 
