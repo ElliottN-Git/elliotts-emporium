@@ -1,19 +1,19 @@
 .Modal {
     position: relative;
-    z-index: 500;
+    z-index: -1;
     background-color: white;
-    width: 75vw;
+    width: auto;
     height: 75vh;
     border: 1px solid #ccc;
     box-shadow: 1px 1px 1px black;
-    padding: 16px;
+    padding: 0;
     overflow-y: scroll;
     top: 10%;
     box-sizing: border-box;
     transition: all 0.3s ease-out;
 }
 
-.Modal embed {
+.Modal iframe {
     width: inherit;
     height: inherit;
 }

@@ -46,7 +46,6 @@ export default class Layout extends Component {
                         <Modal show={this.state.showResume} modalClosed={this.resumeClosedHandler}></Modal>
                         <ResumeTile clicked={this.resumeOpenedHandler} />
                     </Background>
-                    <div style={{ height: '200px', width: '100%' }}></div>
                     {this.props.children}
                 </main>
             </Aux>
