@@ -16,10 +16,25 @@ import ResumeTile from '../../Containers/ResumeTile/ResumeTile';
 import Modal from '../../Components/UI/Modal/Modal';
 //
 
-
 export default class Layout extends Component {
     state = {
-        showResume: false
+        showResume: false,
+        viewPortHeight: window.innerHeight
+    }
+    
+    
+    componentDidMount = () => {
+        window.addEventListener('resize', this.windowResizedHandler);
+    }
+
+    componentWillUnmount = () => {
+        window.removeEventListener('resize', this.windowResizedHandler);
+    }
+
+    //need to add debounce function to limit number of updates triggered
+    windowResizedHandler = () => {
+        console.log(this.state.viewPortHeight);
+        this.setState({viewPortHeight: window.innerHeight});
     }
     
 
