@@ -10,10 +10,10 @@ import Aux from '../../hoc/Auxillary/Auxillary';
 //
 
 
-const ResumeTile = () => {
+const ResumeTile = (props) => {
     return (
         <Aux>
-            <div className={classes.ResumeTile}>
+            <div className={classes.ResumeTile} onClick={props.clicked}>
                 <Tile
                     tileName='ResumeTile'
                     link=''
