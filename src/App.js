@@ -10,6 +10,7 @@ import Dashboard from './Containers/Dashboard/Dashboard';
 import Header from './Components/UI/Header/Header';
 import HeaderText from './Components/UI/HeaderText/HeaderText';
 import Background from './Components/UI/Backgrounds/Background';
+import ResumeTile from './Containers/ResumeTile/ResumeTile';
 //
 
 //Background images
@@ -27,7 +28,10 @@ function App() {
           <HeaderText />
         </Header>
         <Dashboard />
-        <Background />
+        <Background>
+          <ResumeTile />
+        </Background>
+        <div style={{height: '200px', width: '100%'}}></div>
       </Layout>
     </div>
   );

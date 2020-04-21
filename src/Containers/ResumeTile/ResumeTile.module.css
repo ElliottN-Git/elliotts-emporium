@@ -1,0 +1,15 @@
+.ResumeTile {
+    background-color: transparent;
+    margin-top: 25vh;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.ResumeTile h2 {
+    background-color: rgba(200, 200, 200, 0.8);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 5px;
+}

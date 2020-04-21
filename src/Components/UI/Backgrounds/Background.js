@@ -6,7 +6,7 @@ import classes from './Background.module.css';
 
 const Background = (props) => {
     return (
-        <div className={classes.Background} /*style={{backgroundImage: props.backgroundImage}}*/>
+        <div className={classes.Background}>
             {props.children}
         </div>
     )
