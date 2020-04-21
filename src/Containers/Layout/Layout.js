@@ -16,10 +16,12 @@ export default class Layout extends Component {
         return (
             <Aux>
                 <main className={classes.Content}>
-                <h1>Website In Development...</h1>
-                    <ParallaxContainer>
+                    {/* <ParallaxContainer> */}
+                        <div className={classes.InDevelopmentBanner}>
+                            <h1>Website In Development...</h1>
+                        </div>
                         {this.props.children}
-                    </ParallaxContainer>
+                    {/* </ParallaxContainer> */}
                 </main>
             </Aux>
         )

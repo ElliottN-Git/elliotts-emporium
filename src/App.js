@@ -15,8 +15,9 @@ function App() {
   return (
     <div className={classes.App}>
       <Layout>
-        <Header />
-        <HeaderText />
+        <Header>
+          <HeaderText />
+        </Header>
         <Dashboard />
       </Layout>
     </div>

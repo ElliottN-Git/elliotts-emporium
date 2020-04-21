@@ -12,10 +12,11 @@ import classes from './Header.module.css';
 //Image import
 import headerImg from '../../../assets/images/headerImgSpace.jpg';
 //
-const Header = () => {
+const Header = (props) => {
     return (
         <div className={classes.Header}>
-            <img src={headerImg} alt=''/>
+            {/* <img src={headerImg} alt=''/> */}
+            {props.children}
         </div>
     )
 }
