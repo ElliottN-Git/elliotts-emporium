@@ -16,26 +16,34 @@ import ResumeTile from '../../Containers/ResumeTile/ResumeTile';
 import Modal from '../../Components/UI/Modal/Modal';
 //
 
+    //Viewport height taken initially and set, then not updated.
+    //Testing for mobile devices to remove jumping
+
+const vph = window.innerHeight;
+console.log(vph);
+
 export default class Layout extends Component {
+    
+
     state = {
         showResume: false,
-        viewPortHeight: window.innerHeight
+        viewPortHeight: vph
     }
     
-    
-    componentDidMount = () => {
-        window.addEventListener('resize', this.windowResizedHandler);
-    }
 
-    componentWillUnmount = () => {
-        window.removeEventListener('resize', this.windowResizedHandler);
-    }
+    // componentDidMount = () => {
+    // //     window.addEventListener('resize', this.windowResizedHandler);
+    // }
+
+    // componentWillUnmount = () => {
+    //     window.removeEventListener('resize', this.windowResizedHandler);
+    // }
 
     //need to add debounce function to limit number of updates triggered
-    windowResizedHandler = () => {
-        console.log(this.state.viewPortHeight);
-        this.setState({viewPortHeight: window.innerHeight});
-    }
+    // windowResizedHandler = () => {
+    //     console.log(this.state.viewPortHeight);
+    //     this.setState({viewPortHeight: window.innerHeight});
+    // }
     
 
     resumeOpenedHandler = (event) => {
@@ -49,17 +57,18 @@ export default class Layout extends Component {
 
 
     render() {
+        console.log(this.state.viewPortHeight);
         return (
             <Aux>
                 <main className={classes.Content}>
                     <div className={classes.InDevelopmentBanner}>
                         <h1>Website In Development...</h1>
                     </div>
-                    <Header>
+                    <Header viewPortHeight={this.state.viewPortHeight}>
                         <HeaderText />
                     </Header>
                     <Dashboard />
-                    <Background>
+                    <Background viewPortHeight={this.state.viewPortHeight}>
                         <Modal show={this.state.showResume} modalClosed={this.resumeClosedHandler}></Modal>
                         <ResumeTile clicked={this.resumeOpenedHandler} />
                     </Background>
