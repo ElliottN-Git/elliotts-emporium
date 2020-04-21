@@ -4,10 +4,10 @@ import React from 'react';
 import classes from './Background.module.css';
 //
 
-
-const Background = () => {
+const Background = (props) => {
     return (
-        <div className={classes.Background}>
+        <div className={classes.Background} /*style={{backgroundImage: props.backgroundImage}}*/>
+            {props.children}
         </div>
     )
 }

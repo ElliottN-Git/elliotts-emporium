@@ -8,7 +8,6 @@ import classes from './Layout.module.css';
 
 //Components
 import Aux from '../../hoc/Auxillary/Auxillary';
-// import ParallaxContainer from '../ParallaxContainer/ParallaxContainer';
 //
 
 export default class Layout extends Component {
