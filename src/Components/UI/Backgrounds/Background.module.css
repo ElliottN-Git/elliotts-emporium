@@ -12,6 +12,8 @@
 
 @media only screen and (max-width: 600px) {
     .Background {
+        /* This stops the 'bouncing' of the background image 
+            on scroll on mobiles  */
         background-size: auto 210vw;
-    }
+        background-position: center 0;    }
 }
