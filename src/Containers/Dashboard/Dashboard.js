@@ -11,6 +11,9 @@ import classes from './Dashboard.module.css';
 import Tile from '../../Components/UI/Tile/Tile';
 //
 
+//TODO scroll past header, Dashboard pins to top and 'picks up'
+//the items as you scroll past them
+
 const tiles = [
     { id: 1, tileName: 'LinkedIn', link: 'https://www.linkedin.com/', image: 'Linkedin-logo-full.jpg' },
     { id: 2, tileName: 'GitHub', link: 'https://www.github.com/', image: 'GitHub-Logo1.png' }
