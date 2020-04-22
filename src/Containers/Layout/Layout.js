@@ -61,9 +61,9 @@ export default class Layout extends Component {
         return (
             <Aux>
                 <main className={classes.Content}>
-                    <div className={classes.InDevelopmentBanner}>
-                        <h1>Website In Development...</h1>
-                    </div>
+                    {/* <div className={classes.InDevelopmentBanner}>
+                         <h1>Website In Development...</h1>
+                    </div> */}
                     <Header viewPortHeight={this.state.viewPortHeight}>
                         <HeaderText />
                     </Header>

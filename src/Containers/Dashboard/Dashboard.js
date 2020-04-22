@@ -15,8 +15,8 @@ import Tile from '../../Components/UI/Tile/Tile';
 //the items as you scroll past them
 
 const tiles = [
-    { id: 1, tileName: 'LinkedIn', link: 'https://www.linkedin.com/', image: 'Linkedin-logo-full.jpg' },
-    { id: 2, tileName: 'GitHub', link: 'https://www.github.com/', image: 'GitHub-Logo1.png' }
+    { id: 1, tileName: 'LinkedIn', link: 'https://www.linkedin.com/in/elliott-nixon/', image: 'Linkedin-logo-full.jpg' },
+    { id: 2, tileName: 'GitHub', link: 'https://github.com/ElliottN-Git/', image: 'GitHub-Logo1.png' }
 ]
 
 export default class Dashboard extends Component {
