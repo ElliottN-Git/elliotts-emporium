@@ -12,6 +12,6 @@
 
 @media only screen and (max-width: 600px) {
     .Background {
-        height: calc(100vw * 2);
+        height: calc(100vw + 110vw);
     }
 }
