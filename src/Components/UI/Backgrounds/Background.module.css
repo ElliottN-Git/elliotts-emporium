@@ -1,6 +1,6 @@
 .Background {
     display: block;
-    /* height: 100vh; */
+    height: 100vh;
     width: 100%;
     position: relative;
     background-attachment: fixed;
@@ -10,3 +10,8 @@
     background-image: url('../../../assets/images/BGimg2.jpg');
 }
 
+@media only screen and (max-width: 600px) {
+    .Background {
+        height: calc(100vw + 110vw);
+    }
+}

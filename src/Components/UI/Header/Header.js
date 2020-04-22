@@ -17,11 +17,12 @@ import classes from './Header.module.css';
 const Header = (props) => {
     console.log(props.viewPortHeight);
     return (
-        <div className={classes.Header} style={{ height: `${props.viewPortHeight}px` }}>
+        <div className={classes.Header} >
             {/* <img src={headerImg} alt=''/> */}
             {props.children}
         </div>
     )
 }
+// style={{ height: `${props.viewPortHeight}px` }}
 
 export default Header;
