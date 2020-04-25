@@ -5,8 +5,8 @@ import classes from './ResumeTile.module.css';
 //
 
 //Components
-import Tile from '../../Components/UI/Tile/Tile';
-import Aux from '../../hoc/Auxillary/Auxillary';
+import Tile from '../Tile/Tile'
+import Aux from '../../../hoc/Auxillary/Auxillary';
 //
 
 

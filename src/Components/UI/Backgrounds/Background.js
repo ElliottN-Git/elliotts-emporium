@@ -5,7 +5,6 @@ import classes from './Background.module.css';
 //
 
 const Background = (props) => {
-    console.log(props.viewPortHeight);
     return (
         <div className={classes.Background} >
             {props.children}
@@ -13,6 +12,5 @@ const Background = (props) => {
     )
 }
 
-// style={{ height: `${props.viewPortHeight}px` }}
 
 export default Background;
