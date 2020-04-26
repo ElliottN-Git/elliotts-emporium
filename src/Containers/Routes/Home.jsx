@@ -16,12 +16,12 @@ import AboutMe from '../AboutMe/AboutMe';
 //
 
 //Colour codes from CV
-    //Header Background Colour
-        // HTML/HEX code:	#33342f	
-        // RGB code:	rgb(51, 52, 47)
-    //Header Text Colour
-        // HTML/HEX code:	#c6dec0	
-        // RGB code:	rgb(198, 222, 192)
+//Header Background Colour
+// HTML/HEX code:	#33342f	
+// RGB code:	rgb(51, 52, 47)
+//Header Text Colour
+// HTML/HEX code:	#c6dec0	
+// RGB code:	rgb(198, 222, 192)
 
 export default class Layout extends Component {
 
@@ -30,23 +30,29 @@ export default class Layout extends Component {
         showScrollChevron: true
     }
 
-
     componentDidMount = () => {
-        window.addEventListener('scroll', this.scrollFromTopListener);
+        window.addEventListener('scroll', this.debounce(this.scrollFromTopListener, 500));
     }
 
     componentWillUnmount = () => {
         window.removeEventListener('scroll', this.scrollFromTopListener);
     }
 
-    // need to add debounce function to limit number of updates triggered
-
+    //Debounce function to limit number of updates triggered on a listener function
+    debounce = (callback, wait) => {
+        let timeout;
+        return (...args) => {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => callback.apply(context, args), wait);
+        };
+    }
 
     scrollFromTopListener = (event) => {
         let scrollHeight = window.scrollY;
         console.log(scrollHeight);
         if (scrollHeight > 1) {
-            this.setState({ showScrollChevron: false });
+            this.setState({ showScrollChevron: true });
         } else {
             this.setState({ showScrollChevron: true });
         }
@@ -68,8 +74,17 @@ export default class Layout extends Component {
     }
 
     chevronClickedhandler = () => {
-        window.scrollTo({ top: window.innerHeight - 40, behavior: "smooth" });
+        let currentY = window.scrollY;
+        let windowHeight = window.innerHeight;
+        let scrollModifier = Math.ceil(currentY / windowHeight);
+        let scrollModifier2 = Math.ceil((currentY + (scrollModifier*40) + 40)/ windowHeight);
+        if (currentY === 0) {
+            window.scrollTo({ top: (windowHeight - 40), behavior: "smooth" })
+        } else {
+            window.scrollTo({ top: (scrollModifier2 * windowHeight) - 40, behavior: "smooth" })
+        }
     }
+
 
 
     render() {

@@ -1,8 +1,9 @@
 .ScrollChevron {
     width: 100%;
-    position: absolute;
-    top: calc(100vh - 100px);
+    position: fixed;
+    top: calc(100vh - 50px);
     background: transparent;
+    z-index: 150;
 }
 
 .ScrollChevron img {
