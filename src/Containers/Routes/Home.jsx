@@ -121,7 +121,7 @@ export default class Layout extends Component {
                     <AboutMe />
                 </ContentBlock>
                 <ContentBlock backgroundImage={projectsBackgroundImage}>
-
+                    {/* TODO Projects outline - links */}
                 </ContentBlock>
             </Aux >
         )
