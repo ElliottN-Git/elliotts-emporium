@@ -10,7 +10,7 @@
     /* background-image: url('../../../assets/images/BGimg2.jpg'); */
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 500px) {
     .Background {
         /* This stops the 'bouncing' of the background image 
             on scroll on mobiles  */

@@ -10,7 +10,8 @@ import Aux from '../../hoc/Auxillary/Auxillary';
 import Dashboard from '../Dashboard/Dashboard';
 import Header from '../../Components/UI/Header/Header';
 import Modal from '../../Components/UI/Modal/Modal';
-import ScrollChevron from '../../Components/UI/ScrollChevron/ScrollChevron';
+import DownScrollChevron from '../../Components/UI/ScrollChevron/DownScrollChevron';
+import UpScrollChevron from '../../Components/UI/ScrollChevron/UpScrollChevron';
 import ContentBlock from '../ContentBlock/ContentBlock';
 import AboutMe from '../AboutMe/AboutMe';
 //
@@ -30,33 +31,34 @@ export default class Layout extends Component {
         showScrollChevron: true
     }
 
-    componentDidMount = () => {
-        window.addEventListener('scroll', this.debounce(this.scrollFromTopListener, 500));
-    }
 
-    componentWillUnmount = () => {
-        window.removeEventListener('scroll', this.scrollFromTopListener);
-    }
+    // componentDidMount = () => {
+    //     window.addEventListener('scroll', this.debounce(this.scrollFromTopListener, 500));
+    // }
 
-    //Debounce function to limit number of updates triggered on a listener function
-    debounce = (callback, wait) => {
-        let timeout;
-        return (...args) => {
-            const context = this;
-            clearTimeout(timeout);
-            timeout = setTimeout(() => callback.apply(context, args), wait);
-        };
-    }
+    // componentWillUnmount = () => {
+    //     window.removeEventListener('scroll', this.scrollFromTopListener);
+    // }
 
-    scrollFromTopListener = (event) => {
-        let scrollHeight = window.scrollY;
-        console.log(scrollHeight);
-        if (scrollHeight > 1) {
-            this.setState({ showScrollChevron: true });
-        } else {
-            this.setState({ showScrollChevron: true });
-        }
-    }
+    // //Debounce function to limit number of updates triggered on a listener function
+    // debounce = (callback, wait) => {
+    //     let timeout;
+    //     return (...args) => {
+    //         const context = this;
+    //         clearTimeout(timeout);
+    //         timeout = setTimeout(() => callback.apply(context, args), wait);
+    //     };
+    // }
+
+    // scrollFromTopListener = (event) => {
+    //     let scrollHeight = window.scrollY;
+    //     console.log(scrollHeight);
+    //     if (scrollHeight > 1) {
+    //         this.setState({ showScrollChevron: true });
+    //     } else {
+    //         this.setState({ showScrollChevron: true });
+    //     }
+    // }
 
 
     resumeOpenedHandler = (event) => {
@@ -73,7 +75,19 @@ export default class Layout extends Component {
         document.body.style.overflowY = "scroll";
     }
 
-    chevronClickedhandler = () => {
+    upChevronClickedhandler = () => {
+        let currentY = window.scrollY;
+        let windowHeight = window.innerHeight;
+        let scrollModifier = Math.ceil(currentY / windowHeight);
+        let scrollModifier2 = Math.ceil((currentY + (scrollModifier*40) + 40) / windowHeight);
+        if (currentY <= windowHeight) {
+            window.scrollTo({ top: (0 - 40), behavior: "smooth" })
+        } else {
+            window.scrollTo({ top: (scrollModifier2 * windowHeight) - ((scrollModifier2 - 1) * windowHeight) - 40, behavior: "smooth" })
+        }
+    }
+
+    downChevronClickedHandler = () => {
         let currentY = window.scrollY;
         let windowHeight = window.innerHeight;
         let scrollModifier = Math.ceil(currentY / windowHeight);
@@ -91,9 +105,13 @@ export default class Layout extends Component {
         return (
             <Aux>
                 <Header>
-                    <ScrollChevron
+                    <UpScrollChevron
                         show={this.state.showScrollChevron}
-                        clicked={this.chevronClickedhandler}
+                        clicked={this.upChevronClickedhandler}
+                    />
+                    <DownScrollChevron
+                        show={this.state.showScrollChevron}
+                        clicked={this.downChevronClickedHandler}
                     />
                 </Header>
                 <ContentBlock backgroundImage={aboutMeBackgroundImage}>
