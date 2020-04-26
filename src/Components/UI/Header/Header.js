@@ -9,11 +9,6 @@ import classes from './Header.module.css';
 //Components
 //
 
-//Image import
-// import headerImg from '../../../assets/images/headerImgSpace.jpg';
-//
-
-
 const Header = (props) => {
     return (
         <div className={classes.Header} >
@@ -22,6 +17,5 @@ const Header = (props) => {
         </div>
     )
 }
-// style={{ height: `${props.viewPortHeight}px` }}
 
 export default Header;

@@ -1,0 +1,34 @@
+.DownScrollChevron {
+    width: 100%;
+    position: fixed;
+    height: 30px;
+    top: calc(100vh - 50px);
+    background: transparent;
+    z-index: 150;
+    transform: rotate(180deg);
+}
+
+.DownScrollChevron img {
+    color: whitesmoke;
+    height: 30px;
+    width: auto;
+    background: transparent;
+    -webkit-filter: invert(1);
+    animation-name: chevronGlow;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    animation-delay: 0ms;
+    animation-duration: 1s;
+}
+
+@keyframes chevronGlow {
+    from {opacity: 1;}
+    to {opacity: 0.25;}
+}
+
+@media only screen and (max-width: 500px) {
+    .DownScrollChevron {
+        top: calc(100vh - 100px);
+    }
+}

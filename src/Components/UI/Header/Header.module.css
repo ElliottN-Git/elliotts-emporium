@@ -8,21 +8,27 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .Header h1 {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
     color: whitesmoke;
     z-index: 5;
-    margin-top: 45vh;
-    text-align: center;
+    margin-top: 30vh;
     position: absolute;
-
-    /* position: absolute; */
     box-sizing: border-box;
     top: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    border: 1px solid white;
+    width: 90%;
+    height: 10vh;
+    background-color: rgba(25, 25, 25, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
 }
 
 @media only screen and (max-width: 500px) {

@@ -1,17 +1,17 @@
-.ScrollChevron {
+.UpScrollChevron {
     width: 100%;
     position: fixed;
-    top: calc(100vh - 50px);
+    height: 30px;
+    top: calc(100vh - 80px);
     background: transparent;
     z-index: 150;
 }
 
-.ScrollChevron img {
+.UpScrollChevron img {
     color: whitesmoke;
     height: 30px;
     width: auto;
     background: transparent;
-    transform: rotate(180deg);
     -webkit-filter: invert(1);
     animation-name: chevronGlow;
     animation-iteration-count: infinite;
@@ -24,4 +24,10 @@
 @keyframes chevronGlow {
     from {opacity: 1;}
     to {opacity: 0.25;}
+}
+
+@media only screen and (max-width: 500px) {
+    .UpScrollChevron {
+        top: calc(100vh - 140px);
+    }
 }
