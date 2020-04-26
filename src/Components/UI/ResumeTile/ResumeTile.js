@@ -17,10 +17,11 @@ const ResumeTile = (props) => {
                 <Tile
                     tileName='ResumeTile'
                     link=''
-                    image='resumeLogo.jpg'
-                    tileText='Resumé'
-                />
+                    image='resumeIcon.png'
+                    tag='Resumé'
+                >
                 <h2>Resumé</h2>
+                </Tile>
             </div>
         </Aux>
     )

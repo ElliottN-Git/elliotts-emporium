@@ -7,10 +7,9 @@ import React, { Component } from 'react'
 import Aux from '../../hoc/Auxillary/Auxillary';
 import Dashboard from '../Dashboard/Dashboard';
 import Header from '../../Components/UI/Header/Header';
-import HeaderText from '../../Components/UI/HeaderText/HeaderText';
 import Background from '../../Components/UI/Backgrounds/Background';
-import ResumeTile from '../../Components/UI/ResumeTile/ResumeTile'
 import Modal from '../../Components/UI/Modal/Modal';
+import ScrollChevron from '../../Components/UI/ScrollChevron/ScrollChevron';
 //
 
 //Viewport height taken initially and set, then not updated.
@@ -23,13 +22,13 @@ export default class Layout extends Component {
 
     state = {
         showResume: false,
-        // viewPortHeight: vph
+        showScrollChevron: true
     }
 
 
-    // componentDidMount = () => {
-    // //     window.addEventListener('resize', this.windowResizedHandler);
-    // }
+    componentDidMount = () => {
+        window.addEventListener('scroll', this.scrollFromTopListener);
+    }
 
     // componentWillUnmount = () => {
     //     window.removeEventListener('resize', this.windowResizedHandler);
@@ -41,14 +40,27 @@ export default class Layout extends Component {
     //     this.setState({viewPortHeight: window.innerHeight});
     // }
 
+    scrollFromTopListener = (event) => {
+        let scrollHeight = window.scrollY;
+        console.log(scrollHeight);
+        if(scrollHeight > 100) {
+            this.setState({showScrollChevron: false});
+        }
+    }
+
 
     resumeOpenedHandler = (event) => {
         this.setState({ showResume: true });
         event.preventDefault();
+
+    //Locks body scrolling when the modal is open
+        document.body.style.overflowY = "hidden";
     }
+
 
     resumeClosedHandler = () => {
         this.setState({ showResume: false });
+        document.body.style.overflowY = "scroll";
     }
 
 
@@ -56,14 +68,14 @@ export default class Layout extends Component {
         return (
             <Aux>
                 <Header>
-                    <HeaderText />
+                    <ScrollChevron />
                 </Header>
-                <Dashboard />
-                <Background>
+                <Dashboard clicked={this.resumeOpenedHandler}>
                     <Modal show={this.state.showResume} modalClosed={this.resumeClosedHandler}></Modal>
-                    <ResumeTile clicked={this.resumeOpenedHandler} />
+                </Dashboard>
+                <Background>
                 </Background>
-            </Aux>
+            </Aux >
         )
     }
 }

@@ -11,16 +11,18 @@ const NavBar = () => {
                     exact
                     to="/"
                     className={classes.NavBarMenuItem}
+                    activeClassName={classes.ActiveNavBarMenuItem}
                 >
                     Home
                 </NavLink>
 
                 <NavLink
                     exact
-                    to="/test"
+                    to="/resume"
                     className={classes.NavBarMenuItem}
+                    activeClassName={classes.ActiveNavBarMenuItem}
                 >
-                    TestPage
+                    Resume
                 </NavLink>
             </div>
         </div>
