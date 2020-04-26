@@ -7,7 +7,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../../../assets/images/BGimg2.jpg');
+    /* background-image: url('../../../assets/images/BGimg2.jpg'); */
 }
 
 @media only screen and (max-width: 600px) {

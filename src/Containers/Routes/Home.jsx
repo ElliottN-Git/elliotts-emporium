@@ -10,7 +10,9 @@ import Header from '../../Components/UI/Header/Header';
 import Background from '../../Components/UI/Backgrounds/Background';
 import Modal from '../../Components/UI/Modal/Modal';
 import ScrollChevron from '../../Components/UI/ScrollChevron/ScrollChevron';
+import ContentBlock from '../ContentBlock/ContentBlock';
 //
+import backgroundImage from '../../assets/images/BGimg2.jpg';
 
 //Viewport height taken initially and set, then not updated.
 //Testing for mobile devices to remove jumping
@@ -30,21 +32,20 @@ export default class Layout extends Component {
         window.addEventListener('scroll', this.scrollFromTopListener);
     }
 
-    // componentWillUnmount = () => {
-    //     window.removeEventListener('resize', this.windowResizedHandler);
-    // }
+    componentWillUnmount = () => {
+        window.removeEventListener('scroll', this.scrollFromTopListener);
+    }
 
-    //need to add debounce function to limit number of updates triggered
-    // windowResizedHandler = () => {
-    //     console.log(this.state.viewPortHeight);
-    //     this.setState({viewPortHeight: window.innerHeight});
-    // }
+    // need to add debounce function to limit number of updates triggered
+   
 
     scrollFromTopListener = (event) => {
         let scrollHeight = window.scrollY;
         console.log(scrollHeight);
-        if(scrollHeight > 100) {
+        if(scrollHeight > 1) {
             this.setState({showScrollChevron: false});
+        } else {
+            this.setState({showScrollChevron: true});
         }
     }
 
@@ -63,18 +64,26 @@ export default class Layout extends Component {
         document.body.style.overflowY = "scroll";
     }
 
+    chevronClickedhandler = () => {
+        window.scrollTo({top: window.innerHeight - 40, behavior: "smooth"});
+    }
+
 
     render() {
         return (
             <Aux>
                 <Header>
-                    <ScrollChevron />
+                    <ScrollChevron 
+                        show={this.state.showScrollChevron}
+                        clicked={this.chevronClickedhandler}
+                    />
                 </Header>
                 <Dashboard clicked={this.resumeOpenedHandler}>
                     <Modal show={this.state.showResume} modalClosed={this.resumeClosedHandler}></Modal>
                 </Dashboard>
-                <Background>
+                <Background backgroundImage={backgroundImage}>
                 </Background>
+                <ContentBlock />
             </Aux >
         )
     }

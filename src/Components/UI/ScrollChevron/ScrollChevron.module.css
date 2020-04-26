@@ -14,13 +14,13 @@
     -webkit-filter: invert(1);
     animation-name: chevronGlow;
     animation-iteration-count: infinite;
-    animation-play-state: running;
     animation-direction: alternate;
     animation-fill-mode: both;
     animation-delay: 0ms;
+    animation-duration: 1s;
 }
 
 @keyframes chevronGlow {
-    from {transition: scale('1');}
-    to {transition: scale('1.5');}
+    from {opacity: 1;}
+    to {opacity: 0.25;}
 }
