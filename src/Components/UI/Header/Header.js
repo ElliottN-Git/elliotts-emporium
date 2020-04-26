@@ -15,10 +15,9 @@ import classes from './Header.module.css';
 
 
 const Header = (props) => {
-    console.log(props.viewPortHeight);
     return (
         <div className={classes.Header} >
-            {/* <img src={headerImg} alt=''/> */}
+            <h1>Hi! I'm Elliott.</h1>
             {props.children}
         </div>
     )

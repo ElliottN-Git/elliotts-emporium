@@ -1,13 +1,13 @@
 .Background {
     display: block;
-    height: 100vh;
+    height: calc(100vh - 40px);
     width: 100%;
     position: relative;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-image: url('../../../assets/images/BGimg2.jpg');
+    /* background-image: url('../../../assets/images/BGimg2.jpg'); */
 }
 
 @media only screen and (max-width: 600px) {
@@ -15,5 +15,6 @@
         /* This stops the 'bouncing' of the background image 
             on scroll on mobiles  */
         background-size: auto 210vw;
-        background-position: center 0;    }
+        background-position: center 0;    
+    }
 }

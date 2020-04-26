@@ -1,33 +1,38 @@
 import React from 'react';
-
-//CSS
-import classes from './App.module.css';
-//
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 //Components
 import Layout from './Containers/Layout/Layout';
-// import Dashboard from './Containers/Dashboard/Dashboard';
-// import Header from './Components/UI/Header/Header';
-// import HeaderText from './Components/UI/HeaderText/HeaderText';
-// import Background from './Components/UI/Backgrounds/Background';
-// import ResumeTile from './Containers/ResumeTile/ResumeTile';
-//
+import Home from './Containers/Routes/Home'
+import ResumePage from './Containers/Routes/ResumePage/ResumePage';
 
 
 function App() {
   return (
-    <div className={classes.App}>
-      <Layout>
-        {/* <Header>
-          <HeaderText />
-        </Header>
-        <Dashboard />
-        <Background>
-          <ResumeTile />
-        </Background>
-        <div style={{height: '200px', width: '100%'}}></div> */}
-      </Layout>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Layout>
+          <Route render={({ location }) => (
+            <Switch location={location}>
+              <Route
+                exact
+                path="/resume"
+                component={ResumePage}
+                key="resume"
+              />
+
+              <Route
+                exact
+                path=""
+                component={Home}
+                key="home"
+              />
+            </Switch>
+          )}
+          />
+        </Layout>
+      </div>
+    </BrowserRouter>
   );
 }
 

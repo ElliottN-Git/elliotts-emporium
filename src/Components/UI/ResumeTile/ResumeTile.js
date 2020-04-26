@@ -5,8 +5,8 @@ import classes from './ResumeTile.module.css';
 //
 
 //Components
-import Tile from '../../Components/UI/Tile/Tile';
-import Aux from '../../hoc/Auxillary/Auxillary';
+import Tile from '../Tile/Tile'
+import Aux from '../../../hoc/Auxillary/Auxillary';
 //
 
 
@@ -17,10 +17,11 @@ const ResumeTile = (props) => {
                 <Tile
                     tileName='ResumeTile'
                     link=''
-                    image='resumeLogo.jpg'
-                    tileText='Resumé'
-                />
+                    image='resumeIcon.png'
+                    tag='Resumé'
+                >
                 <h2>Resumé</h2>
+                </Tile>
             </div>
         </Aux>
     )

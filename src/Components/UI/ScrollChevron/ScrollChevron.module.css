@@ -1,0 +1,27 @@
+.ScrollChevron {
+    width: 100%;
+    position: fixed;
+    top: calc(100vh - 50px);
+    background: transparent;
+    z-index: 150;
+}
+
+.ScrollChevron img {
+    color: whitesmoke;
+    height: 30px;
+    width: auto;
+    background: transparent;
+    transform: rotate(180deg);
+    -webkit-filter: invert(1);
+    animation-name: chevronGlow;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    animation-delay: 0ms;
+    animation-duration: 1s;
+}
+
+@keyframes chevronGlow {
+    from {opacity: 1;}
+    to {opacity: 0.25;}
+}
