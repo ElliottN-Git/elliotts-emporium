@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
 
-//CSS
+//CSS and assets
 import classes from './ContentBlock.module.css';
 
 //Components
 import Aux from '../../hoc/Auxillary/Auxillary';
-import Background from '../../Components/UI/Backgrounds/Background';
+import Background from '../../Components/UI/Background/Background';
 
-import backgroundImage from '../../assets/images/testDynamicBG.jpg'
 
 export class ContentBlock extends Component {
     render() {
         return (
             <Aux>
-                <Background backgroundImage = {backgroundImage}>
+                <Background backgroundImage={this.props.backgroundImage}>
+                    <div className={classes.ContentBlock}>
+                        {this.props.children}
+                    </div>
                 </Background>
             </Aux>
         )
