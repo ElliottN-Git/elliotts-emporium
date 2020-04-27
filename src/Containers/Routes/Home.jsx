@@ -5,12 +5,12 @@ import aboutMeBackgroundImage from '../../assets/images/BGimg2.jpg';
 import projectsBackgroundImage from '../../assets/images/testDynamicBG.jpg'
 
 //Colour codes from CV
-    //Header Background Colour
-    // HTML/HEX code:	#33342f	
-    // RGB code:	rgb(51, 52, 47)
-    //Header Text Colour
-    // HTML/HEX code:	#c6dec0	
-    // RGB code:	rgb(198, 222, 192)
+//Header Background Colour
+// HTML/HEX code:	#33342f	
+// RGB code:	rgb(51, 52, 47)
+//Header Text Colour
+// HTML/HEX code:	#c6dec0	
+// RGB code:	rgb(198, 222, 192)
 
 
 //Components
@@ -112,15 +112,15 @@ export default class Layout extends Component {
     render() {
         return (
             <Aux>
+                <UpScrollChevron
+                    show={this.state.showScrollChevron}
+                    clicked={this.upChevronClickedhandler}
+                />
+                <DownScrollChevron
+                    show={this.state.showScrollChevron}
+                    clicked={this.downChevronClickedHandler}
+                />
                 <Header>
-                    <UpScrollChevron
-                        show={this.state.showScrollChevron}
-                        clicked={this.upChevronClickedhandler}
-                    />
-                    <DownScrollChevron
-                        show={this.state.showScrollChevron}
-                        clicked={this.downChevronClickedHandler}
-                    />
                 </Header>
                 <ContentBlock backgroundImage={aboutMeBackgroundImage}>
                     <AboutMe>

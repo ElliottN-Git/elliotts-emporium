@@ -1,5 +1,5 @@
 .DownScrollChevron {
-    width: 100%;
+    width: 20%;
     position: fixed;
     height: 30px;
     top: calc(100vh - 50px);
