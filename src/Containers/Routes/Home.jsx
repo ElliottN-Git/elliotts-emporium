@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 //CSS and assets
 import aboutMeBackgroundImage from '../../assets/images/BGimg2.jpg';
-import projectsBackgroundImage from '../../assets/images/testDynamicBG.jpg'
 
 //Colour codes from CV
 //Header Background Colour
@@ -129,9 +128,7 @@ export default class Layout extends Component {
                         </Dashboard>
                     </AboutMe>
                 </ContentBlock>
-                <ContentBlock backgroundImage={projectsBackgroundImage}>
-                    <Projects />
-                </ContentBlock>
+                <Projects />
             </Aux >
         )
     }
