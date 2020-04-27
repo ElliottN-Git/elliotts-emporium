@@ -79,75 +79,51 @@ export default class Layout extends Component {
         document.body.style.overflowY = "scroll";
     }
 
-
-    //Scrolls to the next 'content block' using the chevrons at the bottom of the page
-    //Accounts for current scroll position and window viewport height
-    //Slightly different logic for up and down
-    // upChevronClickedhandler = () => {
-    //     let currentY = window.scrollY;
-    //     let windowHeight = window.innerHeight;
-    //     let scrollModifier = Math.ceil(currentY / windowHeight);
-    //     let scrollModifier2 = Math.ceil((currentY + (scrollModifier * 40) + 40) / windowHeight);
-    //     if (currentY <= windowHeight) {
-    //         window.scrollTo({ top: (0 - 40), behavior: "smooth" })
-    //     } else {
-    //         window.scrollTo({ top: ((scrollModifier2 * windowHeight) - ((scrollModifier2 - 1) * windowHeight) - 40), behavior: "smooth" })
-    //     }
-    // }
-
-    // downChevronClickedHandler = () => {
-    //     let currentY = window.scrollY;
-    //     let windowHeight = window.innerHeight;
-    //     let scrollModifier = Math.ceil(currentY / windowHeight);
-    //     console.log(scrollModifier);
-    //     let scrollModifierFinal;
-    //     if(scrollModifier === 0) {
-    //         scrollModifierFinal = Math.ceil((currentY + 40) / windowHeight);
-    //     } else if(scrollModifier === 1) {
-    //         scrollModifierFinal = Math.ceil((currentY + scrollModifier * 40) / windowHeight);
-    //     } else {
-    //         scrollModifierFinal = Math.ceil((currentY + scrollModifier * 40) / windowHeight);
-    //     }
-    //     if (currentY === 0) {
-    //         window.scrollTo({ top: (windowHeight - 40), behavior: "smooth" })
-    //     } else {
-    //         window.scrollTo({ top: (scrollModifierFinal * windowHeight) - 40, behavior: "smooth" })
-    //     }
-    // }
-
     upChevronClickedhandler = () => {
         const windowHeight = window.innerHeight - 40;    //700
-        console.log(`wHeight: ${windowHeight}`);
+        // console.log(`wHeight: ${windowHeight}`);
 
         let currentY = window.scrollY;
-        console.log(`currentY: ${currentY}`);
+        // console.log(`currentY: ${currentY}`);
 
         let currentScrollBlock = this.state.currentScrollBlock;
+        // console.log(`currentScrollBlock: ${this.state.currentScrollBlock}`);
 
-        // currentScrollBlock = Math.ceil((currentY + 1) / windowHeight);
+        let currentYAdjustment = Math.ceil((currentY - 1) / windowHeight);
+        // console.log(`currentYAdjustment: ${currentYAdjustment}`);
 
-        console.log(`currentScrollBlock: ${this.state.currentScrollBlock}`);
+        if (currentScrollBlock === currentYAdjustment) {
+            window.scrollTo({ top: ((currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
+            this.setState({ currentScrollBlock: (currentScrollBlock) });
+        } else {
+            currentYAdjustment = currentScrollBlock + currentYAdjustment;
+            // console.log(`currentYAdjustment2: ${currentYAdjustment}`);
 
-        window.scrollTo({top: ((currentScrollBlock - 1) * windowHeight) - windowHeight, behavior: "smooth"})
+            // let scrollToBlock = (currentYAdjustment - currentScrollBlock);
+            // console.log(`scrollToBlock: ${scrollToBlock}`);
 
-        this.setState({currentScrollBlock: (currentScrollBlock - 1)});
+            window.scrollTo({ top: ((currentYAdjustment - currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
+            this.setState({ currentScrollBlock: (currentScrollBlock - 1) });
+        }
     }
 
     downChevronClickedHandler = () => {
         const windowHeight = window.innerHeight - 40;    //700
-        console.log(`wHeight: ${windowHeight}`);
-
+        // console.log(`wHeight: ${windowHeight}`);
         let currentY = window.scrollY;
-        console.log(`currentY: ${currentY}`);
+        // console.log(`currentY: ${currentY}`);
 
         let currentScrollBlock = this.state.currentScrollBlock;
+        // console.log(`currentScrollBlock: ${this.state.currentScrollBlock}`);
 
-        // currentScrollBlock = Math.ceil((currentY + 1) / windowHeight);
+        let currentYAdjustment = Math.ceil((currentY + 1) / windowHeight);
+        // console.log(`currentYAdjustment: ${currentYAdjustment}`);
 
-        console.log(`currentScrollBlock: ${this.state.currentScrollBlock}`);
+        currentYAdjustment = currentScrollBlock - currentYAdjustment;
+        // console.log(`currentYAdjustment2: ${currentYAdjustment}`);
 
-        window.scrollTo({top: (currentScrollBlock * windowHeight), behavior: "smooth"})
-        this.setState({currentScrollBlock: (currentScrollBlock + 1)});
+        window.scrollTo({ top: ((currentScrollBlock - currentYAdjustment) * windowHeight), behavior: "smooth" })
+        this.setState({ currentScrollBlock: (currentScrollBlock + 1) });
     }
 
 
