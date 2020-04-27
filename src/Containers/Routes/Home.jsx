@@ -2,8 +2,15 @@ import React, { Component } from 'react'
 
 //CSS and assets
 import aboutMeBackgroundImage from '../../assets/images/BGimg2.jpg';
-import projectsBackgroundImage from '../../assets/images/testDynamicBG.jpg'
-//
+
+//Colour codes from CV
+//Header Background Colour
+// HTML/HEX code:	#33342f	
+// RGB code:	rgb(51, 52, 47)
+//Header Text Colour
+// HTML/HEX code:	#c6dec0	
+// RGB code:	rgb(198, 222, 192)
+
 
 //Components
 import Aux from '../../hoc/Auxillary/Auxillary';
@@ -14,21 +21,18 @@ import DownScrollChevron from '../../Components/UI/ScrollChevron/DownScrollChevr
 import UpScrollChevron from '../../Components/UI/ScrollChevron/UpScrollChevron';
 import ContentBlock from '../ContentBlock/ContentBlock';
 import AboutMe from '../AboutMe/AboutMe';
-//
+import Projects from '../Projects/Projects';
 
-//Colour codes from CV
-//Header Background Colour
-// HTML/HEX code:	#33342f	
-// RGB code:	rgb(51, 52, 47)
-//Header Text Colour
-// HTML/HEX code:	#c6dec0	
-// RGB code:	rgb(198, 222, 192)
+
+
 
 export default class Layout extends Component {
 
     state = {
         showResume: false,
-        showScrollChevron: true
+        showUpScrollChevron: true,
+        showDownScrollChevron: true,
+        currentScrollBlock: 1
     }
 
 
@@ -61,68 +65,89 @@ export default class Layout extends Component {
     // }
 
 
+    //Handlers for opening and closing the resume modal
     resumeOpenedHandler = (event) => {
         this.setState({ showResume: true });
         event.preventDefault();
-
         //Locks body scrolling when the modal is open
         document.body.style.overflowY = "hidden";
     }
 
-
     resumeClosedHandler = () => {
         this.setState({ showResume: false });
+        //Unlocks body scrolling when modal is closed
         document.body.style.overflowY = "scroll";
     }
 
     upChevronClickedhandler = () => {
+        const windowHeight = window.innerHeight - 40;    //700
+        // console.log(`wHeight: ${windowHeight}`);
+
         let currentY = window.scrollY;
-        let windowHeight = window.innerHeight;
-        let scrollModifier = Math.ceil(currentY / windowHeight);
-        let scrollModifier2 = Math.ceil((currentY + (scrollModifier*40) + 40) / windowHeight);
-        if (currentY <= windowHeight) {
-            window.scrollTo({ top: (0 - 40), behavior: "smooth" })
+        // console.log(`currentY: ${currentY}`);
+
+        let currentScrollBlock = this.state.currentScrollBlock;
+        // console.log(`currentScrollBlock: ${this.state.currentScrollBlock}`);
+
+        let currentYAdjustment = Math.ceil((currentY - 1) / windowHeight);
+        // console.log(`currentYAdjustment: ${currentYAdjustment}`);
+
+        if (currentScrollBlock === currentYAdjustment) {
+            window.scrollTo({ top: ((currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
+            this.setState({ currentScrollBlock: (currentScrollBlock) });
         } else {
-            window.scrollTo({ top: (scrollModifier2 * windowHeight) - ((scrollModifier2 - 1) * windowHeight) - 40, behavior: "smooth" })
+            currentYAdjustment = currentScrollBlock + currentYAdjustment;
+            // console.log(`currentYAdjustment2: ${currentYAdjustment}`);
+
+            // let scrollToBlock = (currentYAdjustment - currentScrollBlock);
+            // console.log(`scrollToBlock: ${scrollToBlock}`);
+
+            window.scrollTo({ top: ((currentYAdjustment - currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
+            this.setState({ currentScrollBlock: (currentScrollBlock - 1) });
         }
     }
 
     downChevronClickedHandler = () => {
+        const windowHeight = window.innerHeight - 40;    //700
+        // console.log(`wHeight: ${windowHeight}`);
         let currentY = window.scrollY;
-        let windowHeight = window.innerHeight;
-        let scrollModifier = Math.ceil(currentY / windowHeight);
-        let scrollModifier2 = Math.ceil((currentY + (scrollModifier*40) + 40)/ windowHeight);
-        if (currentY === 0) {
-            window.scrollTo({ top: (windowHeight - 40), behavior: "smooth" })
-        } else {
-            window.scrollTo({ top: (scrollModifier2 * windowHeight) - 40, behavior: "smooth" })
-        }
-    }
+        // console.log(`currentY: ${currentY}`);
 
+        let currentScrollBlock = this.state.currentScrollBlock;
+        // console.log(`currentScrollBlock: ${this.state.currentScrollBlock}`);
+
+        let currentYAdjustment = Math.ceil((currentY + 1) / windowHeight);
+        // console.log(`currentYAdjustment: ${currentYAdjustment}`);
+
+        currentYAdjustment = currentScrollBlock - currentYAdjustment;
+        // console.log(`currentYAdjustment2: ${currentYAdjustment}`);
+
+        window.scrollTo({ top: ((currentScrollBlock - currentYAdjustment) * windowHeight), behavior: "smooth" })
+        this.setState({ currentScrollBlock: (currentScrollBlock + 1) });
+    }
 
 
     render() {
         return (
             <Aux>
+                <UpScrollChevron
+                    show={this.state.showScrollChevron}
+                    clicked={this.upChevronClickedhandler}
+                />
+                <DownScrollChevron
+                    show={this.state.showScrollChevron}
+                    clicked={this.downChevronClickedHandler}
+                />
                 <Header>
-                    <UpScrollChevron
-                        show={this.state.showScrollChevron}
-                        clicked={this.upChevronClickedhandler}
-                    />
-                    <DownScrollChevron
-                        show={this.state.showScrollChevron}
-                        clicked={this.downChevronClickedHandler}
-                    />
                 </Header>
                 <ContentBlock backgroundImage={aboutMeBackgroundImage}>
-                    <Dashboard clicked={this.resumeOpenedHandler}>
-                        <Modal show={this.state.showResume} modalClosed={this.resumeClosedHandler}></Modal>
-                    </Dashboard>
-                    <AboutMe />
+                    <AboutMe>
+                        <Dashboard clicked={this.resumeOpenedHandler}>
+                            <Modal show={this.state.showResume} modalClosed={this.resumeClosedHandler}></Modal>
+                        </Dashboard>
+                    </AboutMe>
                 </ContentBlock>
-                <ContentBlock backgroundImage={projectsBackgroundImage}>
-
-                </ContentBlock>
+                <Projects />
             </Aux >
         )
     }

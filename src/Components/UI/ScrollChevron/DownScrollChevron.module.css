@@ -1,5 +1,5 @@
 .DownScrollChevron {
-    width: 100%;
+    width: 20%;
     position: fixed;
     height: 30px;
     top: calc(100vh - 50px);
@@ -20,6 +20,12 @@
     animation-fill-mode: both;
     animation-delay: 0ms;
     animation-duration: 1s;
+}
+
+.DownScrollChevron:hover {
+    transform: scale(1.5) rotate(180deg);
+    transition-duration: 250ms;
+    cursor: pointer;
 }
 
 @keyframes chevronGlow {

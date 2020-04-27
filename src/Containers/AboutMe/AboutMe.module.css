@@ -1,3 +1,11 @@
+.Container {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
 .AboutMe {
     height: auto;
     width: auto;
@@ -16,8 +24,27 @@
     text-decoration: underline;
     margin: 0;
     color: rgb(198, 222, 192);
+    font-size: 3.4vmin;
 }
 
 .AboutMe p {
     color: whitesmoke;
+    font-size: 2vmin;
+}
+
+@media only screen and (max-width: 500px) {
+    .Container {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .AboutMe {
+        height: ;
+    }
+    .AboutMe h1 {
+        font-size: 3.4vmax;
+    }
+    .AboutMe p {
+        font-size: 2vmax;
+    }
 }

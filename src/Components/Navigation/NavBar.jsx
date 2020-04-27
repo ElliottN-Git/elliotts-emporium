@@ -22,7 +22,7 @@ const NavBar = () => {
                     className={classes.NavBarMenuItem}
                     activeClassName={classes.ActiveNavBarMenuItem}
                 >
-                    Resume
+                    Resumé
                 </NavLink>
             </div>
         </div>

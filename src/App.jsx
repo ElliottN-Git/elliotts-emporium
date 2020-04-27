@@ -2,12 +2,12 @@ import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
 
 //Components
-import Layout from './Containers/Layout/Layout';
+import Layout from './Containers//Layout/Layout';
 import Home from './Containers/Routes/Home'
 import ResumePage from './Containers/Routes/ResumePage/ResumePage';
 
 
-function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <div>

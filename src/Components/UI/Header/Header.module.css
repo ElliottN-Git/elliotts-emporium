@@ -1,5 +1,6 @@
 .Header {
     display: flex;
+    flex-direction: column;
     height: calc(100vh - 40px);
     width: 100%;
     position: relative;
@@ -20,10 +21,6 @@
     display: flex;
     color: whitesmoke;
     z-index: 5;
-    margin-top: 30vh;
-    position: absolute;
-    box-sizing: border-box;
-    top: 0;
     width: 90%;
     height: 10vh;
     background-color: rgba(25, 25, 25, 1);
@@ -31,11 +28,49 @@
     border-radius: 5px;
 }
 
+.Header img {
+    margin-bottom: 10vw;
+    z-index: 10;
+    width: 200px;
+    border: 1px solid rgba(25, 25, 25, 1);
+    border-radius: 200px;
+}
+
 @media only screen and (max-width: 500px) {
     .Header {
         /* This stops the 'bouncing' of the background image 
             on scroll on mobiles  */
-        background-size: auto 210vw;
+        background-size: auto 220vw;
         background-position: center 0;
     }
+
+    /* .Header img {
+        position: absolute;
+        top: 0;
+        margin-top: 15vh;
+        z-index: 10;
+        opacity: 1;
+        width: 35vw;
+        border: 1px solid rgba(25, 25, 25, 1);
+        border-radius: 35vw;
+    } */
+}
+
+@media only screen and (min-width: 500px) and (max-width: 1000px) {
+    .Header {
+        /* This stops the 'bouncing' of the background image 
+            on scroll on mobiles  */
+        background-size: auto 220vw;
+        background-position: center 0;
+    }
+
+    /* .Header img {
+        position: absolute;
+        top: 15vh;
+        z-index: 10;
+        opacity: 1;
+        width: 25vw;
+        border: 1px solid rgba(25, 25, 25, 1);
+        border-radius: 25vw;
+    } */
 }
