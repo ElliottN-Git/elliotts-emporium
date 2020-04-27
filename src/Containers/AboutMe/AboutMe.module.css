@@ -41,8 +41,10 @@
     .AboutMe {
         height: ;
     }
-
+    .AboutMe h1 {
+        font-size: 3.4vmax;
+    }
     .AboutMe p {
-        font-size: 3vmin;
+        font-size: 2vmax;
     }
 }

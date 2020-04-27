@@ -16,7 +16,7 @@ const Projects = () => {
                 <div className={classes.MindMape}>
                     <div className={classes.Blurb}>
                         <h1>MindMape</h1>
-                        <p>This is project I completed in my PostGraduate Certificate in Information Technology.</p>
+                        <p>A blogging website I developed with a team of three others as the final project in my PostGraduate Certificate in Information Technology.</p>
                     </div>
                     <img src={MindMapeImg} alt="MindMapeImg" />
                 </div>

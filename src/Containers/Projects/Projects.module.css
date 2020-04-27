@@ -65,26 +65,33 @@
     }
 
     .Blurb {
-        
+        padding: 0px 5px 0px 5px;
+    }
+    
+    .Blurb p {
+        font-size: 2vmax;
     }
 
     .MindMape,
     .ThisWebsite {
         flex-direction: column;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: flex-start;
         height: 100%;
     }
+
     .BurgerBuilder {
-        flex-direction: column;
+        flex-direction: column-reverse;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: flex-end;
         height: 100%;
     }
 
     .Projects img {
+        margin-top: 40%;
         max-width: 100%;
-        height: auto;
+        height: 30%;
+        object-fit: cover;
     }
 
     .ThisWebsite img {
