@@ -22,6 +22,12 @@
     animation-duration: 1s;
 }
 
+.DownScrollChevron:hover {
+    transform: scale(1.5) rotate(180deg);
+    transition-duration: 250ms;
+    cursor: pointer;
+}
+
 @keyframes chevronGlow {
     from {opacity: 1;}
     to {opacity: 0.25;}

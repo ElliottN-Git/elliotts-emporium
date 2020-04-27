@@ -1,7 +1,95 @@
 .Projects {
     display: flex;
+    position: absolute;
+    top: 0;
+    flex-direction: column;
     height: 100%;
     width: 80vw;
     background-color: rgb(198, 222, 192);
-    
+}
+
+.Projects img {
+    height: 100%;
+    max-width: 50%;
+    background: transparent;
+}
+
+.Blurb {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 100px 0px 100px;
+}
+
+.Blurb p {
+    font-size: 2vmin;
+}
+
+.MindMape {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 33%;
+    color: black;
+    /* color: rgb(51, 52, 47); */
+}
+
+.BurgerBuilder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 33%;
+    background-color: rgb(51, 52, 47);
+    color: whitesmoke;
+    /* color: rgb(198, 222, 192); */
+}
+
+.ThisWebsite {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 34%;
+    color: rgb(51, 52, 47);
+}
+
+.ThisWebsite img {
+    height: 80%;
+    margin-top: 2%;
+    margin-right: 100px;
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .Projects {
+        height: 300%;
+    }
+
+    .Blurb {
+        
+    }
+
+    .MindMape,
+    .ThisWebsite {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100%;
+    }
+    .BurgerBuilder {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 100%;
+    }
+
+    .Projects img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .ThisWebsite img {
+        max-width: 50%;
+        height: auto;
+        margin-right: 0;
+    }
 }
