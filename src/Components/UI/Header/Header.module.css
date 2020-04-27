@@ -35,7 +35,7 @@
     .Header {
         /* This stops the 'bouncing' of the background image 
             on scroll on mobiles  */
-        background-size: auto 210vw;
+        background-size: auto 220vw;
         background-position: center 0;
     }
 }

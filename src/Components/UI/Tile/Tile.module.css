@@ -5,15 +5,16 @@
 }
 
 .TileContainer h2 {
-    color: whitesmoke;
+    color: rgb(198, 222, 192);
+    font-size: 3.5vmin;
 }
 
 .Tile {
     padding: 0;
     margin: 3vw;
     margin-bottom: 0;
-    width: 10vw;
-    height: 10vw;
+    width: 7vw;
+    height: 7vw;
     background-color: white;
     display: flex;
     border: 1px solid #fff;
