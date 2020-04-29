@@ -13,6 +13,7 @@
     height: 30px;
     width: auto;
     background: transparent;
+    filter: invert(1);
     -webkit-filter: invert(1);
     animation-name: chevronGlow;
     animation-iteration-count: infinite;
@@ -20,11 +21,28 @@
     animation-fill-mode: both;
     animation-delay: 0ms;
     animation-duration: 1s;
+    -webkit-animation-name: chevronGlow;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-delay: 0ms;
+    -webkit-animation-duration: 1s;
+    -moz-animation-name: chevronGlow;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+    -moz-animation-fill-mode: both;
+    -moz-animation-delay: 0ms;
+    -moz-animation-duration: 1s;
 }
 
 .DownScrollChevron:hover {
     transform: scale(1.5) rotate(180deg);
     transition-duration: 250ms;
+    -webkit-transform: scale(1.5) rotate(180deg);
+    -webkit-transition-duration: 250ms;
+    -moz-transform: scale(1.5) rotate(180deg);
+    -moz-transition-duration: 250ms;
+
     cursor: pointer;
 }
 
@@ -35,6 +53,6 @@
 
 @media only screen and (max-width: 500px) {
     .DownScrollChevron {
-        top: calc(100vh - 100px);
+        top: calc(100vh - 150px);
     }
 }
