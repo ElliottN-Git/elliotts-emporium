@@ -18,7 +18,7 @@ class Projects extends Component {
     }
 
     componentDidMount = () => {
-        const widthCheck = window.innerHeight;
+        const widthCheck = window.innerWidth;
         console.log(`WidthCheck: ${widthCheck}`);
 
         // const heightCheck = document.body.scrollHeight;
