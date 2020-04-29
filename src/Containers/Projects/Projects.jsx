@@ -12,6 +12,8 @@ import ContentBlock from '../ContentBlock/ContentBlock';
 import Aux from '../../hoc/Auxillary/Auxillary';
 import { Component } from 'react';
 
+
+//needed to change something for git
 class Projects extends Component {
     state = {
         smallScreen: false
