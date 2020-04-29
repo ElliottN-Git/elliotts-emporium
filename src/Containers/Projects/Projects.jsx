@@ -14,6 +14,8 @@ import { Component } from 'react';
 
 
 //needed to change something for git
+//blah blah blah
+
 class Projects extends Component {
     state = {
         smallScreen: false
