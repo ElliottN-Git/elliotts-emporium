@@ -13,6 +13,10 @@ import Aux from '../../hoc/Auxillary/Auxillary';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
+//needed to change something for git
+//blah blah blah
+
 class Projects extends Component {
     state = {
         smallScreen: false
