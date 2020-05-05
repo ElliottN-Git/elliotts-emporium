@@ -34,35 +34,6 @@ export default class Home extends Component {
     }
 
 
-    // componentDidMount = () => {
-    //     window.addEventListener('scroll', this.debounce(this.scrollFromTopListener, 500));
-    // }
-
-    // componentWillUnmount = () => {
-    //     window.removeEventListener('scroll', this.scrollFromTopListener);
-    // }
-
-    // //Debounce function to limit number of updates triggered on a listener function
-    // debounce = (callback, wait) => {
-    //     let timeout;
-    //     return (...args) => {
-    //         const context = this;
-    //         clearTimeout(timeout);
-    //         timeout = setTimeout(() => callback.apply(context, args), wait);
-    //     };
-    // }
-
-    // scrollFromTopListener = (event) => {
-    //     let scrollHeight = window.scrollY;
-    //     console.log(scrollHeight);
-    //     if (scrollHeight > 1) {
-    //         this.setState({ showScrollChevron: true });
-    //     } else {
-    //         this.setState({ showScrollChevron: true });
-    //     }
-    // }
-
-
     //Handlers for opening and closing the resume modal
     resumeOpenedHandler = (event) => {
         this.setState({ showResume: true });
