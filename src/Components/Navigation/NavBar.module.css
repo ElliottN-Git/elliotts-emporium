@@ -39,7 +39,7 @@
 }
 
 .NavBarMenuItem:hover {
-    text-decoration: underline red;
+    text-decoration: underline rgb(198, 222, 192);
 }
 
 .ActiveNavBarMenuItem {

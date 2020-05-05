@@ -5,7 +5,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import Layout from './Containers//Layout/Layout';
 import Home from './Containers/Routes/Home'
 import ResumePage from './Containers/Routes/ResumePage/ResumePage';
-
+import MindMapePage from './Containers/Routes/MindMapePage/MindMape';
 
 const App = () => {
   return (
@@ -19,6 +19,13 @@ const App = () => {
                 path="/resume"
                 component={ResumePage}
                 key="resume"
+              />
+
+              <Route
+                exact
+                path="/mindmape"
+                component={MindMapePage}
+                key="mindmape"
               />
 
               <Route

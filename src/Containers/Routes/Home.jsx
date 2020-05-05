@@ -24,9 +24,7 @@ import AboutMe from '../AboutMe/AboutMe';
 import Projects from '../Projects/Projects';
 
 
-
-
-export default class Layout extends Component {
+export default class Home extends Component {
 
     state = {
         showResume: false,

@@ -11,6 +11,7 @@ import ThisWebsiteImg from '../../assets/images/ThisWebsite/thisSiteFaviconBig.p
 import ContentBlock from '../ContentBlock/ContentBlock';
 import Aux from '../../hoc/Auxillary/Auxillary';
 import { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class Projects extends Component {
     state = {
@@ -43,7 +44,12 @@ class Projects extends Component {
                         <div className={classes.Projects}>
                             <div className={classes.MindMape}>
                                 <div className={classes.Blurb}>
-                                    <h1>MindMape</h1>
+                                    <Link
+                                        className={classes.MindMapeLink}
+                                        to="/mindmape"
+                                    >
+                                        <h1>MindMape</h1>
+                                    </Link>
                                     <p>A blogging website I developed with a team of three others as the final project in my PostGraduate Certificate in Information Technology.</p>
                                 </div>
                                 <img src={MindMapeImg} alt="MindMapeImg" />
@@ -52,29 +58,34 @@ class Projects extends Component {
                     </ContentBlock>
 
                     <ContentBlock backgroundImage={projectsBackgroundImage} className={classes.ProjectsContentBlock}>
-                    <div className={classes.Projects}>
+                        <div className={classes.Projects}>
 
-                        <div className={classes.BurgerBuilder}>
-                            <img src={BurgerBuilderImg} alt="BurgerBuilderImg" />
-                            <div className={classes.Blurb}>
-                                <h1>BurgerBuilder</h1>
-                                <p>Hungry? I created a BurgerBuilder webapp in the Udemy React course by AcadeMind.</p>
+                            <div className={classes.BurgerBuilder}>
+                                <img src={BurgerBuilderImg} alt="BurgerBuilderImg" />
+                                <div className={classes.Blurb}>
+                                    <Link
+                                        className={classes.BurgerBuilderLink}
+                                        to="/burgerbuilder"
+                                    >
+                                        <h1>BurgerBuilder</h1>
+                                    </Link>
+                                    <p>Hungry? I created a BurgerBuilder webapp in the Udemy React course by AcadeMind.</p>
+                                </div>
+
                             </div>
-
-                        </div>
                         </div>
                     </ContentBlock>
 
                     <ContentBlock backgroundImage={projectsBackgroundImage} className={classes.ProjectsContentBlock}>
-                    <div className={classes.Projects}>
+                        <div className={classes.Projects}>
 
-                        <div className={classes.ThisWebsite}>
-                            <div className={classes.Blurb}>
-                                <h1>This Website!</h1>
-                                <p>Hungry? I created a BurgerBuilder webapp in the Udemy React course by AcadeMind.</p>
+                            <div className={classes.ThisWebsite}>
+                                <div className={classes.Blurb}>
+                                    <h1>This Website!</h1>
+                                    <p>The page you are currently on was also developed with React!</p>
+                                </div>
+                                <img src={ThisWebsiteImg} alt="ThisWebsiteImg" />
                             </div>
-                            <img src={ThisWebsiteImg} alt="ThisWebsiteImg" />
-                        </div>
                         </div>
                     </ContentBlock>
                 </Aux >
@@ -87,7 +98,12 @@ class Projects extends Component {
                         <div className={classes.Projects}>
                             <div className={classes.MindMape}>
                                 <div className={classes.Blurb}>
-                                    <h1>MindMape</h1>
+                                    <Link
+                                        className={classes.MindMapeLink}
+                                        to="/mindmape"
+                                    >
+                                        <h1>MindMape</h1>
+                                    </Link>
                                     <p>A blogging website I developed with a team of three others as the final project in my PostGraduate Certificate in Information Technology.</p>
                                 </div>
                                 <img src={MindMapeImg} alt="MindMapeImg" />
@@ -95,7 +111,12 @@ class Projects extends Component {
                             <div className={classes.BurgerBuilder}>
                                 <img src={BurgerBuilderImg} alt="BurgerBuilderImg" />
                                 <div className={classes.Blurb}>
-                                    <h1>BurgerBuilder</h1>
+                                    <Link
+                                        className={classes.BurgerBuilderLink}
+                                        to="/burgerbuilder"
+                                    >
+                                        <h1>BurgerBuilder</h1>
+                                    </Link>
                                     <p>Hungry? I created a BurgerBuilder webapp in the Udemy React course by AcadeMind.</p>
                                 </div>
 
@@ -103,7 +124,7 @@ class Projects extends Component {
                             <div className={classes.ThisWebsite}>
                                 <div className={classes.Blurb}>
                                     <h1>This Website!</h1>
-                                    <p>Hungry? I created a BurgerBuilder webapp in the Udemy React course by AcadeMind.</p>
+                                    <p>The page you are currently on was also developed with React!</p>
                                 </div>
                                 <img src={ThisWebsiteImg} alt="ThisWebsiteImg" />
                             </div>
