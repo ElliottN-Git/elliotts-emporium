@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import ScrollToTop from './Containers/Routes/ScrollToTop/ScrollToTop';
+
 
 //Components
 import Layout from './Containers//Layout/Layout';
@@ -9,9 +11,10 @@ import MindMapePage from './Containers/Routes/MindMapePage/MindMape';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
       <div>
         <Layout>
+          <ScrollToTop />
           <Route render={({ location }) => (
             <Switch location={location}>
               <Route

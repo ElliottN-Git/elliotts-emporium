@@ -9,7 +9,6 @@ import blockTwoImage from '../../../assets/images/MindMape/profilePage.png';
 import Aux from '../../../hoc/Auxillary/Auxillary';
 import ContentBlock from '../../ContentBlock/ContentBlock';
 
-
 const MindMape = () => {
     return (
         <Aux>
