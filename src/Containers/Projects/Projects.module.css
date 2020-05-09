@@ -58,6 +58,20 @@
     margin-right: 100px;
 }
 
+.MindMapeLink {
+    text-decoration: none;
+    color: rgb(51, 52, 47);
+}
+
+.BurgerBuilderLink {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.MindMapeLink:hover,
+.BurgerBuilderLink:hover {
+    text-decoration: underline;
+}
 
 @media only screen and (max-width: 1000px) {
     .ProjectsContentBlock {

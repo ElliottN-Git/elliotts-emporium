@@ -24,9 +24,7 @@ import AboutMe from '../AboutMe/AboutMe';
 import Projects from '../Projects/Projects';
 
 
-
-
-export default class Layout extends Component {
+export default class Home extends Component {
 
     state = {
         showResume: false,
@@ -34,35 +32,6 @@ export default class Layout extends Component {
         showDownScrollChevron: true,
         currentScrollBlock: 1
     }
-
-
-    // componentDidMount = () => {
-    //     window.addEventListener('scroll', this.debounce(this.scrollFromTopListener, 500));
-    // }
-
-    // componentWillUnmount = () => {
-    //     window.removeEventListener('scroll', this.scrollFromTopListener);
-    // }
-
-    // //Debounce function to limit number of updates triggered on a listener function
-    // debounce = (callback, wait) => {
-    //     let timeout;
-    //     return (...args) => {
-    //         const context = this;
-    //         clearTimeout(timeout);
-    //         timeout = setTimeout(() => callback.apply(context, args), wait);
-    //     };
-    // }
-
-    // scrollFromTopListener = (event) => {
-    //     let scrollHeight = window.scrollY;
-    //     console.log(scrollHeight);
-    //     if (scrollHeight > 1) {
-    //         this.setState({ showScrollChevron: true });
-    //     } else {
-    //         this.setState({ showScrollChevron: true });
-    //     }
-    // }
 
 
     //Handlers for opening and closing the resume modal
@@ -80,48 +49,26 @@ export default class Layout extends Component {
     }
 
     upChevronClickedhandler = () => {
-        const windowHeight = window.innerHeight - 40;    //700
-        // console.log(`wHeight: ${windowHeight}`);
-
+        const windowHeight = window.innerHeight - 40;    
         let currentY = window.scrollY;
-        // console.log(`currentY: ${currentY}`);
-
         let currentScrollBlock = this.state.currentScrollBlock;
-        // console.log(`currentScrollBlock: ${this.state.currentScrollBlock}`);
-
         let currentYAdjustment = Math.ceil((currentY - 1) / windowHeight);
-        // console.log(`currentYAdjustment: ${currentYAdjustment}`);
-
         if (currentScrollBlock === currentYAdjustment) {
             window.scrollTo({ top: ((currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
             this.setState({ currentScrollBlock: (currentScrollBlock) });
         } else {
             currentYAdjustment = currentScrollBlock + currentYAdjustment;
-            // console.log(`currentYAdjustment2: ${currentYAdjustment}`);
-
-            // let scrollToBlock = (currentYAdjustment - currentScrollBlock);
-            // console.log(`scrollToBlock: ${scrollToBlock}`);
-
             window.scrollTo({ top: ((currentYAdjustment - currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
             this.setState({ currentScrollBlock: (currentScrollBlock - 1) });
         }
     }
 
     downChevronClickedHandler = () => {
-        const windowHeight = window.innerHeight - 40;    //700
-        // console.log(`wHeight: ${windowHeight}`);
+        const windowHeight = window.innerHeight - 40;    
         let currentY = window.scrollY;
-        // console.log(`currentY: ${currentY}`);
-
         let currentScrollBlock = this.state.currentScrollBlock;
-        // console.log(`currentScrollBlock: ${this.state.currentScrollBlock}`);
-
         let currentYAdjustment = Math.ceil((currentY + 1) / windowHeight);
-        // console.log(`currentYAdjustment: ${currentYAdjustment}`);
-
         currentYAdjustment = currentScrollBlock - currentYAdjustment;
-        // console.log(`currentYAdjustment2: ${currentYAdjustment}`);
-
         window.scrollTo({ top: ((currentScrollBlock - currentYAdjustment) * windowHeight), behavior: "smooth" })
         this.setState({ currentScrollBlock: (currentScrollBlock + 1) });
     }
