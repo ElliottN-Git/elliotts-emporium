@@ -47,7 +47,7 @@ const MindMape = () => {
                         <div className={classes.DatabasePlanBlurb}>
                             <h2>Database Design</h2>
                             <p>The database we used was SQL so we started by outlining the entities, their attributes and relationships between them. We decided that the primary keys for users, articles and comments would all be automatically generated integers (using not null primary key in the SQL set-up). <br />
-                            <br />
+                                <br />
                             The main entity was the users as they have relationships with all of the other entities, and have the most attributes. The articles and comments both had userId as foreign keys, as they each have exactly one user that posts them. However, comments differed from articles because a comment also had and articleId foreign key, again because a comment is associated with one article. Additionally comments had a replyTo_Id attribute that was a foreign key of commentId. This was to add in the functionality of being able to reply to comments.  </p>
                         </div>
                         <img src={databasePlanImage} alt="Database Plan" />
@@ -59,9 +59,29 @@ const MindMape = () => {
                 <div className={classes.SignUpBlock}>
                     <div className={classes.SignUpFormImg} style={{ backgroundImage: `url(${signUpImage})` }}></div>
                     <div className={classes.SignUpBlurb}>
-                        <h1>Sign Up Form</h1>
-                        <p></p>
+                        <h1>Sign Up</h1>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lectus leo, congue et ante vel, tincidunt laoreet tortor. Vestibulum tristique lectus felis, a ultrices lorem lobortis pulvinar. Etiam iaculis risus a nisl elementum, at aliquet diam gravida. Duis lobortis vitae purus sed scelerisque. Aenean sit amet erat ac magna auctor porttitor. Ut nec massa sagittis, iaculis elit quis, pulvinar dolor. Aenean pharetra tincidunt arcu, lobortis pulvinar dolor semper condimentum. Nunc dui ante, accumsan sit amet hendrerit eu, molestie at tellus. Fusce dignissim, sapien a suscipit aliquet, erat nunc ultricies turpis, ac dictum metus sem ut nulla. Morbi porttitor posuere pulvinar. Curabitur faucibus tortor vel placerat scelerisque.
+
+                        Morbi vel justo ornare, convallis tellus a, vehicula leo. Donec vel hendrerit leo. Suspendisse tincidunt ac mauris ac lacinia. Aenean accumsan massa et augue sollicitudin viverra. Maecenas dictum, dui id efficitur vestibulum, leo erat iaculis lacus, eu mollis sapien massa vestibulum turpis. Cras sit amet purus et massa ullamcorper vestibulum sit amet ac felis. Cras eget finibus lacus. Aliquam in ante nisl. Nunc ex arcu, viverra vitae augue nec, sodales mollis arcu. Cras vehicula magna velit, a imperdiet lectus accumsan et. Duis quis dolor ut lacus euismod condimentum. Integer erat metus, faucibus ut ex sed, convallis gravida nisi. Quisque eget nulla et velit ultrices congue. Phasellus mattis vehicula ipsum. Sed congue erat nec sollicitudin convallis. Sed sit amet aliquet felis. </p>
                     </div>
+                </div>
+            </ContentBlock>
+
+            <ContentBlock>
+                <div className={classes.Profile}>
+                    <h1>Profile Page</h1>
+                </div>
+            </ContentBlock>
+
+            <ContentBlock>
+                <div className={classes.Articles}>
+                    <h1>Articles and Comments</h1>
+                </div>
+            </ContentBlock>
+
+            <ContentBlock>
+                <div className={classes.ProfanityFilter}>
+                    <h1>****ing Profanity Filter</h1>
                 </div>
             </ContentBlock>
         </Aux>
