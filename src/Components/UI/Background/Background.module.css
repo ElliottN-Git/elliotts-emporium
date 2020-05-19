@@ -1,6 +1,6 @@
 .Background {
     display: block;
-    height: calc(100vh - 40px);
+    height: inherit;
     width: 100%;
     position: relative;
     background-attachment: fixed;

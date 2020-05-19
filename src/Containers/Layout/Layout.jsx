@@ -18,7 +18,7 @@ class Layout extends Component {
     }
 
     componentDidMount = () => {
-        window.addEventListener('scroll', this.debounce(this.scrollFromTopListener, 100));
+        window.addEventListener('scroll', this.debounce(this.scrollFromTopListener, 50));
     }
 
     componentWillUnmount = () => {
@@ -47,14 +47,14 @@ class Layout extends Component {
 
     render() {
         let navHeight = {};
-        if(this.state.navShrink) {
-            navHeight = {height: "40px"};
+        if (this.state.navShrink) {
+            navHeight = { height: "40px", backgroundColor: "rgba(25,25,25,1)", boxShadow: "0 1px 2px 0 rgba(201, 197, 197, 0.25)" };
         }
 
         return (
             <Aux>
-                <NavBar navShrink={navHeight}/>
                 <main className={classes.Content}>
+                    <NavBar navShrink={navHeight} />
                     {this.props.children}
                 </main>
             </Aux>

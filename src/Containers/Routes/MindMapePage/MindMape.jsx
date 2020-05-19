@@ -14,7 +14,7 @@ import ContentBlock from '../../ContentBlock/ContentBlock';
 const MindMape = () => {
     return (
         <Aux>
-            <ContentBlock>
+            <ContentBlock topBlock={true}>
                 <div className={classes.CB1}>
                     <div className={classes.CB1Background} style={{ backgroundImage: `url(${blockOneImage})` }}>
                     </div>
