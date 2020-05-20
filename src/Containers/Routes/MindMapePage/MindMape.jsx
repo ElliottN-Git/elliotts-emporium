@@ -65,7 +65,15 @@ const MindMape = () => {
                     <div className={classes.SignUpRightBlock}>
                         <div className={classes.SignUpBlurb}>
                             <h1>Sign Up</h1>
-                            <p>The account creation page was the form seen here. </p>
+                            <p>The account creation page was the form seen on the left. <br />
+                                This form was submitted to the database using a POST request through Express and a custom Data Access Object module. <br />
+                                On the database the user's password was not stored as plaintext. Instead, the NPM module 'Crypto' was used to salt and hash the password. <br />
+                            <br />
+                            <br />
+                                Below is the Avatar selction interface, which was located beneath the form on the website.
+                                This gave users the option to upload an avatar of their own choosing. The NPM module 'fs' renamed and saved the file in the public folder, followed by the 'Jimp' module resizing the image to a thumbnail and overwriting the original full-sized image. <br />
+                                Care was taken so that only one image could be uploaded or selected.
+                            </p>
                         </div>
                         <img src={avatarSelectionImg} alt="" />
                     </div>

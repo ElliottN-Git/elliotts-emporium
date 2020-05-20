@@ -121,6 +121,7 @@
     width: 100%;
     align-items: center;
     padding: 25px;
+    font-size: 2vmin;
 }
 
 .DatabasePlan {
@@ -206,8 +207,7 @@
     position: -moz-sticky;
     position: sticky;
     top: 200vh;
-    /* position: fixed;
-    z-index: 100;  sort this out - want fixed position like the image?*/
+    font-size: 2vmin;
 }
 
 .Profile {
