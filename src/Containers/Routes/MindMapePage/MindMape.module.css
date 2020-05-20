@@ -243,7 +243,7 @@
 }
 
 .Profile img {
-    width: 80%;
+    width: 70%;
 }
 
 .Articles {
@@ -264,10 +264,20 @@
     position: sticky;
     top: 40px;
     align-self: flex-start;
+    z-index: 60;
 }
 
 .Articles h2 {
     color: whitesmoke;
+}
+
+.Articles h3 {
+    color: rgb(198, 222, 192);
+    background-color: rgb(51, 52, 47);
+}
+
+.Articles p {
+    margin-top: 0;
 }
 
 .PanelContainer {
@@ -280,9 +290,9 @@
     overflow: hidden;
 }
 
+
 .ArticlesPanel {
     display: flex;
-    /* flex-direction: column; */
     justify-content: space-evenly;
     align-items: center;
     height: 100%;
@@ -298,9 +308,8 @@
     width: 50%;
 }
 
-.ArticlesPanel img,
-.CommentsPanel img {
-    width: 80%;
+.PanelContainer img {
+    max-width: 70%;
 }
 
 .ArticlesPanel div,
