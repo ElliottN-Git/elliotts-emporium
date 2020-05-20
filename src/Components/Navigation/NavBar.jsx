@@ -4,6 +4,8 @@ import { NavLink, withRouter } from 'react-router-dom';
 import classes from './NavBar.module.css';
 import ENLogo from '../../assets/images/ThisWebsite/ENLogo.png'
 
+//TODO add in nav bar collapse for mobile
+
 const NavBar = (props) => {
     return (
         <div className={classes.NavBar} style={props.navShrink}>

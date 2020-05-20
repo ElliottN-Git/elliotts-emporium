@@ -5,13 +5,17 @@ import classes from './MindMape.module.css';
 import blockOneImage from '../../../assets/images/MindMape/mindMapeHeader.png';
 import signUpImage from '../../../assets/images/MindMape/signUpFormHalfWidth.png';
 import gitBranchingImage from '../../../assets/images/MindMape/git-branching-model-croppedjpg.jpg';
-import databasePlanImage from '../../../assets/images/MindMape/mindMape ERD v2.1.png'
+import databasePlanImage from '../../../assets/images/MindMape/mindMape ERD v2.1.png';
+import avatarSelectionImg from '../../../assets/images/MindMape/Avatar selection2.gif';
 
 //Components
 import Aux from '../../../hoc/Auxillary/Auxillary';
 import ContentBlock from '../../ContentBlock/ContentBlock';
 
 const MindMape = () => {
+
+    //TODO add in conditional JSX, see projects block on home page
+
     return (
         <Aux>
             <ContentBlock topBlock={true}>
@@ -58,11 +62,12 @@ const MindMape = () => {
             <ContentBlock>
                 <div className={classes.SignUpBlock}>
                     <div className={classes.SignUpFormImg} style={{ backgroundImage: `url(${signUpImage})` }}></div>
-                    <div className={classes.SignUpBlurb}>
-                        <h1>Sign Up</h1>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lectus leo, congue et ante vel, tincidunt laoreet tortor. Vestibulum tristique lectus felis, a ultrices lorem lobortis pulvinar. Etiam iaculis risus a nisl elementum, at aliquet diam gravida. Duis lobortis vitae purus sed scelerisque. Aenean sit amet erat ac magna auctor porttitor. Ut nec massa sagittis, iaculis elit quis, pulvinar dolor. Aenean pharetra tincidunt arcu, lobortis pulvinar dolor semper condimentum. Nunc dui ante, accumsan sit amet hendrerit eu, molestie at tellus. Fusce dignissim, sapien a suscipit aliquet, erat nunc ultricies turpis, ac dictum metus sem ut nulla. Morbi porttitor posuere pulvinar. Curabitur faucibus tortor vel placerat scelerisque.
-
-                        Morbi vel justo ornare, convallis tellus a, vehicula leo. Donec vel hendrerit leo. Suspendisse tincidunt ac mauris ac lacinia. Aenean accumsan massa et augue sollicitudin viverra. Maecenas dictum, dui id efficitur vestibulum, leo erat iaculis lacus, eu mollis sapien massa vestibulum turpis. Cras sit amet purus et massa ullamcorper vestibulum sit amet ac felis. Cras eget finibus lacus. Aliquam in ante nisl. Nunc ex arcu, viverra vitae augue nec, sodales mollis arcu. Cras vehicula magna velit, a imperdiet lectus accumsan et. Duis quis dolor ut lacus euismod condimentum. Integer erat metus, faucibus ut ex sed, convallis gravida nisi. Quisque eget nulla et velit ultrices congue. Phasellus mattis vehicula ipsum. Sed congue erat nec sollicitudin convallis. Sed sit amet aliquet felis. </p>
+                    <div className={classes.SignUpRightBlock}>
+                        <div className={classes.SignUpBlurb}>
+                            <h1>Sign Up</h1>
+                            <p>The account creation page was the form seen here. </p>
+                        </div>
+                        <img src={avatarSelectionImg} alt="" />
                     </div>
                 </div>
             </ContentBlock>
