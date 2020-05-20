@@ -7,6 +7,10 @@ import signUpImage from '../../../assets/images/MindMape/signUpFormHalfWidth.png
 import gitBranchingImage from '../../../assets/images/MindMape/git-branching-model-croppedjpg.jpg';
 import databasePlanImage from '../../../assets/images/MindMape/mindMape ERD v2.1.png';
 import avatarSelectionImg from '../../../assets/images/MindMape/Avatar selection2.gif';
+import profilePageImg from '../../../assets/images/MindMape/profilePage3.png';
+import writeArticleImg from '../../../assets/images/MindMape/WriteArticle.png';
+import articlesPageImg from '../../../assets/images/MindMape/Articles page.png';
+import commentSectionImg from '../../../assets/images/MindMape/WriteComment.png';
 
 //Components
 import Aux from '../../../hoc/Auxillary/Auxillary';
@@ -68,14 +72,14 @@ const MindMape = () => {
                             <p>The account creation page was the form seen on the left. <br />
                                 This form was submitted to the database using a POST request through Express and a custom Data Access Object module. <br />
                                 On the database the user's password was not stored as plaintext. Instead, the NPM module 'Crypto' was used to salt and hash the password. <br />
-                            <br />
-                            <br />
+                                <br />
+                                <br />
                                 Below is the Avatar selction interface, which was located beneath the form on the website.
                                 This gave users the option to upload an avatar of their own choosing. The NPM module 'fs' renamed and saved the file in the public folder, followed by the 'Jimp' module resizing the image to a thumbnail and overwriting the original full-sized image. <br />
                                 Care was taken so that only one image could be uploaded or selected.
                             </p>
+                            <img src={avatarSelectionImg} alt="" />
                         </div>
-                        <img src={avatarSelectionImg} alt="" />
                     </div>
                 </div>
             </ContentBlock>
@@ -83,12 +87,31 @@ const MindMape = () => {
             <ContentBlock>
                 <div className={classes.Profile}>
                     <h1>Profile Page</h1>
+                    <p>Below is the profile page once signed in. The user can log in and out, with authentication being handled by the Data Access Object and Crypto, adding a session and assigning
+                        them a cookie to access their account's data. <br />
+                        <br />
+                        On the 'My Profile' tab users can edit and delete their account, as well as all of their account's articles and comments in the 'My Article History' tab.
+                    </p>
+                    <img src={profilePageImg} alt="profilePageImg" />
                 </div>
             </ContentBlock>
 
             <ContentBlock>
                 <div className={classes.Articles}>
                     <h1>Articles and Comments</h1>
+                    <h2>Click on the images for more info!</h2>
+                    <div className={classes.PanelContainer}>
+                        <div className={classes.ArticlesPanel}>
+                            <p>All users can view articles.</p>
+                            <img src={articlesPageImg} alt="articlesPageImg" />
+                            <p>Logged in users can write articles and comments.</p>
+                            <img src={writeArticleImg} alt="writeArticleImg" />
+                        </div>
+                        <div className={classes.CommentsPanel}>
+                            <p>Each article has it's own comments sectiion.</p>
+                            <img src={commentSectionImg} alt="commentSectionImg" />
+                        </div>
+                    </div>
                 </div>
             </ContentBlock>
 
