@@ -102,14 +102,20 @@ const MindMape = () => {
                     <h2>Click on the images for more info!</h2>
                     <div className={classes.PanelContainer}>
                         <div className={classes.ArticlesPanel}>
-                            <p>All users can view articles.</p>
-                            <img src={articlesPageImg} alt="articlesPageImg" />
-                            <p>Logged in users can write articles and comments.</p>
-                            <img src={writeArticleImg} alt="writeArticleImg" />
+                            <div>
+                                <p>All users can view articles.</p>
+                                <img src={articlesPageImg} alt="articlesPageImg" />
+                            </div>
+                            <div>
+                                <p>Logged in users can write articles and comments.</p>
+                                <img src={writeArticleImg} alt="writeArticleImg" />
+                            </div>
                         </div>
                         <div className={classes.CommentsPanel}>
-                            <p>Each article has it's own comments sectiion.</p>
-                            <img src={commentSectionImg} alt="commentSectionImg" />
+                            <div>
+                                <p>Each article has it's own comments sectiion.</p>
+                                <img src={commentSectionImg} alt="commentSectionImg" />
+                            </div>
                         </div>
                     </div>
                 </div>
