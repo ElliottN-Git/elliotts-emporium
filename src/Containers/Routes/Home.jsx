@@ -17,8 +17,6 @@ import Aux from '../../hoc/Auxillary/Auxillary';
 import Dashboard from '../Dashboard/Dashboard';
 import Header from '../../Components/UI/Header/Header';
 import Modal from '../../Components/UI/Modal/Modal';
-import DownScrollChevron from '../../Components/UI/ScrollChevron/DownScrollChevron';
-import UpScrollChevron from '../../Components/UI/ScrollChevron/UpScrollChevron';
 import ContentBlock from '../ContentBlock/ContentBlock';
 import AboutMe from '../AboutMe/AboutMe';
 import Projects from '../Projects/Projects';
@@ -28,11 +26,7 @@ export default class Home extends Component {
 
     state = {
         showResume: false,
-        showUpScrollChevron: true,
-        showDownScrollChevron: true,
-        currentScrollBlock: 1
     }
-
 
     //Handlers for opening and closing the resume modal
     resumeOpenedHandler = (event) => {
@@ -48,43 +42,17 @@ export default class Home extends Component {
         document.body.style.overflowY = "scroll";
     }
 
-    upChevronClickedhandler = () => {
-        const windowHeight = window.innerHeight - 40;    
-        let currentY = window.scrollY;
-        let currentScrollBlock = this.state.currentScrollBlock;
-        let currentYAdjustment = Math.ceil((currentY - 1) / windowHeight);
-        if (currentScrollBlock === currentYAdjustment) {
-            window.scrollTo({ top: ((currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
-            this.setState({ currentScrollBlock: (currentScrollBlock) });
-        } else {
-            currentYAdjustment = currentScrollBlock + currentYAdjustment;
-            window.scrollTo({ top: ((currentYAdjustment - currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
-            this.setState({ currentScrollBlock: (currentScrollBlock - 1) });
-        }
-    }
-
-    downChevronClickedHandler = () => {
-        const windowHeight = window.innerHeight - 40;    
-        let currentY = window.scrollY;
-        let currentScrollBlock = this.state.currentScrollBlock;
-        let currentYAdjustment = Math.ceil((currentY + 1) / windowHeight);
-        currentYAdjustment = currentScrollBlock - currentYAdjustment;
-        window.scrollTo({ top: ((currentScrollBlock - currentYAdjustment) * windowHeight), behavior: "smooth" })
-        this.setState({ currentScrollBlock: (currentScrollBlock + 1) });
-    }
-
-
     render() {
         return (
             <Aux>
-                <UpScrollChevron
+                {/* <UpScrollChevron
                     show={this.state.showScrollChevron}
                     clicked={this.upChevronClickedhandler}
                 />
                 <DownScrollChevron
                     show={this.state.showScrollChevron}
                     clicked={this.downChevronClickedHandler}
-                />
+                /> */}
                 <Header>
                 </Header>
                 <ContentBlock backgroundImage={aboutMeBackgroundImage}>

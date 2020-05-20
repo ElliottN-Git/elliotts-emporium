@@ -9,16 +9,20 @@ import classes from './Layout.module.css';
 //Components
 import NavBar from '../../Components/Navigation/NavBar';
 import Aux from '../../hoc/Auxillary/Auxillary';
-
+import DownScrollChevron from '../../Components/UI/ScrollChevron/DownScrollChevron';
+import UpScrollChevron from '../../Components/UI/ScrollChevron/UpScrollChevron';
 
 class Layout extends Component {
 
     state = {
-        navShrink: false
+        navShrink: false,
+        showUpScrollChevron: true,
+        showDownScrollChevron: true,
+        currentScrollBlock: 1
     }
 
     componentDidMount = () => {
-        window.addEventListener('scroll', this.debounce(this.scrollFromTopListener, 100));
+        window.addEventListener('scroll', this.debounce(this.scrollFromTopListener, 50));
     }
 
     componentWillUnmount = () => {
@@ -45,16 +49,50 @@ class Layout extends Component {
         }
     }
 
+
+    upChevronClickedhandler = () => {
+        const windowHeight = window.innerHeight - 40;
+        let currentY = window.scrollY;
+        let currentScrollBlock = this.state.currentScrollBlock;
+        let currentYAdjustment = Math.ceil((currentY - 1) / windowHeight);
+        if (currentScrollBlock === currentYAdjustment) {
+            window.scrollTo({ top: ((currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
+            this.setState({ currentScrollBlock: (currentScrollBlock) });
+        } else {
+            currentYAdjustment = currentScrollBlock + currentYAdjustment;
+            window.scrollTo({ top: ((currentYAdjustment - currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
+            this.setState({ currentScrollBlock: (currentScrollBlock - 1) });
+        }
+    }
+
+    downChevronClickedHandler = () => {
+        const windowHeight = window.innerHeight - 40;
+        let currentY = window.scrollY;
+        let currentScrollBlock = this.state.currentScrollBlock;
+        let currentYAdjustment = Math.ceil((currentY + 1) / windowHeight);
+        currentYAdjustment = currentScrollBlock - currentYAdjustment;
+        window.scrollTo({ top: ((currentScrollBlock - currentYAdjustment) * windowHeight), behavior: "smooth" })
+        this.setState({ currentScrollBlock: (currentScrollBlock + 1) });
+    }
+
     render() {
         let navHeight = {};
-        if(this.state.navShrink) {
-            navHeight = {height: "40px"};
+        if (this.state.navShrink) {
+            navHeight = { height: "40px", backgroundColor: "rgba(25,25,25,1)", boxShadow: "0 1px 2px 0 rgba(201, 197, 197, 0.25)" };
         }
 
         return (
             <Aux>
-                <NavBar navShrink={navHeight}/>
                 <main className={classes.Content}>
+                    <UpScrollChevron
+                        show={this.state.showScrollChevron}
+                        clicked={this.upChevronClickedhandler}
+                    />
+                    <DownScrollChevron
+                        show={this.state.showScrollChevron}
+                        clicked={this.downChevronClickedHandler}
+                    />
+                    <NavBar navShrink={navHeight} />
                     {this.props.children}
                 </main>
             </Aux>

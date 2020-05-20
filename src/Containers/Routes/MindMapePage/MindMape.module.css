@@ -12,7 +12,7 @@
     width: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: 0 40px;
+    background-position: 0 0px;
     background-size: contain;
     background-color: rgb(51, 52, 47);
 }
@@ -81,16 +81,19 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: rgb(51, 52, 47);
+    background-color: rgb(198, 222, 192);
 }
 
 .CB2 h1 {
     width: 100%;
     margin: 0;
     padding: 20px 0;
-    background-color: rgb(198, 222, 192);
-    color: rgb(51, 52, 47);
+    background-color: rgb(51, 52, 47);
+    color: rgb(198, 222, 192);
     text-decoration: underline;
+    position: sticky;
+    top: 40px;
+    align-self: flex-start;
 }
 
 .CB2 h2 {
@@ -102,14 +105,17 @@
     flex-direction: row;
     width: 100%;
     height: 40%;
-    background-color: rgb(51, 52, 47);
-    color: rgb(198, 222, 192);
+    background-color: rgb(198, 222, 192);
+    color: rgb(51, 52, 47)
 }
 
 .VersionControl img {
-    height: 80%;
+    height: 100%;
     max-width: 50%;
     align-self: center;
+    border: 5px solid rgb(198, 222, 192);
+    border-right: none;
+    box-sizing: border-box;
 }
 
 .VersionControlBlurb, .DatabasePlanBlurb {
@@ -117,7 +123,8 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
-    margin: 25px;
+    padding: 25px;
+    font-size: 2vmin;
 }
 
 .DatabasePlan {
@@ -125,7 +132,8 @@
     flex-direction: row;
     width: 100%;
     height: 60%;
-    background-color: rgb(198, 222, 192);
+    background-color: rgb(51, 52, 47);
+    color: rgb(198, 222, 192)
 }
  
 .CB2 p {
@@ -133,18 +141,21 @@
 }
 
 .DatabasePlan img {
-    max-height: 85%;
-    width: 90%;
+    height: 100%;
+    min-width: 50%;
     align-self: center;
+    border: 5px solid rgb(51, 52, 47);
+    border-left: none;
+    box-sizing: border-box;
 }
 
 @media only screen and (max-width: 1000px) {
     .CB2 h1 {
-        font-size: 3.5vmax;
+        /* font-size: 3.5vmax; */
     }
 
     .CB2 h2 {
-        font-size: 2.5vmax;
+        /* font-size: 2.5vmax; */
     }
 }
 
@@ -168,11 +179,146 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100%;
+}
+
+.SignUpRightBlock {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.SignUpRightBlock img {
+    width: 100%;
 }
 
 .SignUpBlurb h1 {
+    width: 100%;
     color: rgb(198, 222, 192);
     text-decoration: underline;
     background-color: rgb(51, 52, 47);
     margin: 0;
+    padding: 20px 0px;
+    position: sticky;
+    top: 40px;
+    align-self: flex-start;
+}
+
+.SignUpBlurb p {
+    background-color: rgb(198, 222, 192);
+    color: rgb(51, 52, 47);
+    height: 100%;
+    margin: 0;
+    padding: 25px;
+    top: 200vh;
+    font-size: 2vmin;
+}
+
+.Profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(198, 222, 192);
+}
+
+.Profile h1 {
+    width: 100%;
+    background-color: rgb(51, 52, 47);
+    color: rgb(198, 222, 192);
+    margin: 0;
+    text-decoration: underline;
+    padding: 15px 0px;
+    position: sticky;
+    top: 40px;
+}
+
+.Profile p {
+    height: 100%;
+    width: 75%;
+    font-size: 2.2vmin;
+    margin-top: 100px;
+}
+
+.Profile img {
+    width: 80%;
+}
+
+.Articles {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(51, 52, 47);
+}
+
+.Articles h1 {
+    width: 100%;
+    background-color: rgb(51, 52, 47);
+    color: rgb(198, 222, 192);
+    margin: 0;
+    padding: 15px 0px;
+    text-decoration: underline;
+    position: sticky;
+    top: 40px;
+    align-self: flex-start;
+}
+
+.Articles h2 {
+    color: whitesmoke;
+}
+
+.PanelContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color: rgb(198, 222, 192);
+    overflow: hidden;
+}
+
+.ArticlesPanel {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.CommentsPanel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 50%;
+}
+
+.ArticlesPanel img,
+.CommentsPanel img {
+    width: 80%;
+}
+
+.ArticlesPanel div,
+.CommentsPanel div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition-duration: 0.5s;
+}
+
+.ArticlesPanel div:hover,
+.CommentsPanel div:hover {
+    transform: scale(1.25);
+    cursor: pointer;
+}
+
+.ProfanityFilter {
+    display: flex;
+    color: rgb(198, 222, 192);
+    height: 100%;
 }
