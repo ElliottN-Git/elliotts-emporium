@@ -24,23 +24,29 @@ class MindMape extends Component {
         showWriteExpanded: false
     }
 
-//TODO finesse the positioning of these expanding divs
+    //TODO finesse the positioning of these expanding divs
     articlesAndCommentsClickHandler = (event) => {
         console.log(event.target.alt);
         let whichDiv = `show${event.target.alt}Expanded`;
         console.log(whichDiv);
-        
+
+        if (event.target.alt === undefined) {
+            this.setState({ showCommentsExpanded: false });
+            this.setState({ showArticlesExpanded: false });
+            this.setState({ showWriteExpanded: false });
+        }
+
         if (!this.state.showCommentsExpanded && whichDiv === 'showCommentsExpanded') {
             this.setState({ showCommentsExpanded: true });
-        } else if(this.state.showCommentsExpanded && whichDiv === 'showCommentsExpanded') {
+        } else if (this.state.showCommentsExpanded && whichDiv === 'showCommentsExpanded') {
             this.setState({ showCommentsExpanded: false });
         } if (!this.state.showArticlesExpanded && whichDiv === 'showArticlesExpanded') {
             this.setState({ showArticlesExpanded: true });
-        } else if(this.state.showArticlesExpanded && whichDiv === 'showArticlesExpanded') {
+        } else if (this.state.showArticlesExpanded && whichDiv === 'showArticlesExpanded') {
             this.setState({ showArticlesExpanded: false });
         } if (!this.state.showWriteExpanded && whichDiv === 'showWriteExpanded') {
             this.setState({ showWriteExpanded: true });
-        } else if(this.state.showWriteExpanded && whichDiv === 'showWriteExpanded') {
+        } else if (this.state.showWriteExpanded && whichDiv === 'showWriteExpanded') {
             this.setState({ showWriteExpanded: false });
         }
     }
@@ -123,45 +129,66 @@ class MindMape extends Component {
                     </div>
                 </ContentBlock>
 
+
+                {/* This whole section needs to be revised */}
                 <ContentBlock>
                     <div className={classes.Articles}>
                         <h1>Articles and Comments</h1>
                         <h2>Click on the images for more info!</h2>
                         <div className={classes.PanelContainer}>
-                            <div className={classes.ArticlesPanel}>
                             <Backdrop show={this.state.showArticlesExpanded} clicked={this.articlesAndCommentsClickHandler} />
+                            <Backdrop show={this.state.showWriteExpanded} clicked={this.articlesAndCommentsClickHandler} />
+                            <div className={classes.ArticlesPanel}>
                                 <div onClick={this.articlesAndCommentsClickHandler}
                                     style={{
-                                        transform: this.state.showArticlesExpanded ? 'scale(1.75) translate(30%, 5vh)' : '',
+                                        transform: this.state.showArticlesExpanded ? 'scale(1.5) translate(25%, 5vh)' : '',
+                                        transformOrigin: 'top',
                                         width: this.state.showArticlesExpanded ? '100%' : '',
-                                        backgroundColor: this.state.showArticlesExpanded ? 'rgb(51, 52, 47)' : '',
                                         zIndex: this.state.showArticlesExpanded ? '51' : '',
                                         borderRadius: this.state.showArticlesExpanded ? '5px' : '0',
                                     }}>
-                                    <h3>All users can view articles.</h3>
+                                    <h3 style={{
+                                    transform: this.state.showArticlesExpanded ? 'translateY(0)' : 'translateY(50px)',
+                                    transitionDuration: '0.5s'
+                                    }}>All users can view articles.</h3>
+                                    <p style={{
+                                        transform: this.state.showArticlesExpanded ? 'translateY(0)' : 'translateY(70px)',
+                                        transitionDuration: '0.5s',
+                                        zIndex: this.state.showArticlesExpanded ? '1' : '-1',
+                                        opacity: this.state.showArticlesExpanded ? '1' : '0'
+                                    }}>The home page of MindMape is a list of all of the articles posted, with the most recent at the top.</p>
                                     <img src={articlesPageImg} alt="Articles" />
                                 </div>
-                                <Backdrop show={this.state.showWriteExpanded} clicked={this.articlesAndCommentsClickHandler} />
-                                <div onClick={this.articlesAndCommentsClickHandler} 
+                                <div onClick={this.articlesAndCommentsClickHandler}
                                     style={{
-                                        transform: this.state.showWriteExpanded ? 'scale(1.75) translate(-30%, 5vh)' : '',
+                                        transform: this.state.showWriteExpanded ? 'scale(1.5) translate(-25%, 5vh)' : '',
+                                        transformOrigin: 'top',
                                         width: this.state.showWriteExpanded ? '100%' : '',
-                                        backgroundColor: this.state.showWriteExpanded ? 'rgb(51, 52, 47)' : '',
                                         zIndex: this.state.showWriteExpanded ? '51' : '',
                                         borderRadius: this.state.showWriteExpanded ? '5px' : '0',
                                     }}>
-                                    <h3>Logged in users can write articles and comments.</h3>
+                                    <h3 style={{
+                                        transform: this.state.showWriteExpanded ? 'translateY(0)' : 'translateY(90px)',
+                                        transitionDuration: '0.5s'
+                                    }}>Logged in users can write articles and comments.</h3>
+                                    <p style={{
+                                        transform: this.state.showWriteExpanded ? 'translateY(0)' : 'translateY(200px)',
+                                        transitionDuration: '0.5s',
+                                        zIndex: this.state.showWriteExpanded ? '1' : '-1',
+                                        opacity: this.state.showWriteExpanded ? '1' : '0'
+                                    }}>To write articles an embedded WYSIWYG editor, TinyMCE, was used. This allowed full editing of the text and images could be imported.<br /> 
+                                    Any styling and images were maintained as the article was saved as HTML on the server.</p>
                                     <img src={writeArticleImg} alt="Write" />
                                 </div>
                             </div>
+                            <Backdrop show={this.state.showCommentsExpanded} clicked={this.articlesAndCommentsClickHandler} />
                             <div className={classes.CommentsPanel}>
-                                <Backdrop show={this.state.showCommentsExpanded} clicked={this.articlesAndCommentsClickHandler} />
                                 <div
                                     onClick={this.articlesAndCommentsClickHandler}
                                     style={{
-                                        transform: this.state.showCommentsExpanded ? 'scale(1.75) translateY(-15vh)' : '',
+                                        transform: this.state.showCommentsExpanded ? 'scale(1.5) translateY(-10vh)' : '',
+                                        transformOrigin: 'bottom',
                                         width: this.state.showCommentsExpanded ? '100%' : '',
-                                        backgroundColor: this.state.showCommentsExpanded ? 'rgb(51, 52, 47)' : '',
                                         zIndex: this.state.showCommentsExpanded ? '51' : '',
                                         borderRadius: this.state.showCommentsExpanded ? '5px' : '0',
                                     }}
@@ -169,21 +196,20 @@ class MindMape extends Component {
                                     <h3 style={{
                                         transform: this.state.showCommentsExpanded ? 'translateY(0)' : 'translateY(70px)',
                                         transitionDuration: '0.5s'
-                                    }}>Each article has its own comments sectiion.</h3>
-                                    {/* {this.state.showCommentsExpanded 
-                                        ? <p>blahblahblahblahblahblahblah.<br />blahblahblahblahblahblahblahblahblahbl.<br />ahblahblahblahblahblahblahblahblah</p>
-                                        : null} */}
+                                    }}>Each article has its own comments section.</h3>
                                     <p style={{
                                         transform: this.state.showCommentsExpanded ? 'translateY(0)' : 'translateY(100px)',
                                         transitionDuration: '0.5s',
-                                        zIndex: this.state.showCommentsExpanded ? '1' : '-1'
-                                    }}>blahblahblahblahblahblahblah.<br />blahblahblahblahblahblahblahblahblahbl.<br />ahblahblahblahblahblahblahblahblah</p>
+                                        zIndex: this.state.showCommentsExpanded ? '1' : '-1',
+                                        opacity: this.state.showCommentsExpanded ? '1' : '0'
+                                    }}>The comments section below an article allows users to write a comment directly to the article, or reply to other comments.<br />These nested comments can be collapsed to reduce clutter.</p>
                                     <img src={commentSectionImg} alt="Comments" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </ContentBlock>
+                {/*  */}
 
                 <ContentBlock>
                     <div className={classes.ProfanityFilter}>
