@@ -45,14 +45,6 @@ export default class Home extends Component {
     render() {
         return (
             <Aux>
-                {/* <UpScrollChevron
-                    show={this.state.showScrollChevron}
-                    clicked={this.upChevronClickedhandler}
-                />
-                <DownScrollChevron
-                    show={this.state.showScrollChevron}
-                    clicked={this.downChevronClickedHandler}
-                /> */}
                 <Header>
                 </Header>
                 <ContentBlock backgroundImage={aboutMeBackgroundImage}>

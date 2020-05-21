@@ -243,6 +243,7 @@
 
 .Profile img {
     min-width: 50%;
+    max-width: 100%;
     max-height: 60%;
 }
 
@@ -335,8 +336,72 @@
     z-index: 60;
 }
 
+.MobilePanelContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.MobilePanel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.MobilePanel img {
+    max-width: 90%;
+}
+
+.MobilePanelsHeading {
+    width: 100%;
+    background-color: rgb(51, 52, 47);
+    color: rgb(198, 222, 192);
+    margin: 0;
+    padding: 15px 0px;
+    text-decoration: underline;
+    position: sticky;
+    top: 40px;
+    align-self: flex-start;
+    z-index: 10;
+}
+
 .ProfanityFilter {
     display: flex;
-    color: rgb(198, 222, 192);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgb(198, 222, 192);
+    color: rgb(51, 52, 47);
     height: 100%;
+}
+
+.ProfanityFilter h1 {
+    text-decoration: underline;
+}
+
+.ProfanityFilter p {
+    font-size: 2vmin;
+    width: 75%;
+}
+
+.ProfanityFilter img {
+    width: 80%;
+}
+
+@media only screen and (max-width: 500px) {
+    .CB1 p,
+    .CB2 p,
+    .Profile p,
+    .SignUpBlock p,
+    .MobilePanel p,
+    .ProfanityFilter p {
+        font-size: 1.9vmax;
+        font-weight: 500;
+        overflow-y: scroll;
+    }
 }

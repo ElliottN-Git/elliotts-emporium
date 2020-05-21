@@ -1,6 +1,7 @@
 .DownScrollChevron {
     width: 20%;
     position: fixed;
+    -webkit-position: fixed;
     height: 30px;
     top: calc(100vh - 50px);
     background: transparent;
