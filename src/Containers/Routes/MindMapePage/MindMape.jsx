@@ -91,50 +91,102 @@ class MindMape extends Component {
                         </div>
                     </div>
                 </ContentBlock>
-
-                <ContentBlock>
-                    <div className={classes.CB2}>
-                        <h1>Planning</h1>
-                        <div className={classes.VersionControl}>
-                            <img src={gitBranchingImage} alt="Feature Branching Diagram" />
-                            <div className={classes.VersionControlBlurb}>
-                                <h2>Git Feature Branching</h2>
-                                <p>Our project was managed in a GitLab repository. We researched early on how to effectively use Git and decided on the ‘Feature Branching’ workflow. We would individually work on features on our own branches and when completed would push to upstream, informing the other team members we had done so. The other team members would then pull from upstream, alerting them to any potential merge conflicts with their features. These conflicts would be more easily resolved while actively working on these conflicting areas. This worked extremely well as conflicts were regularly identified and resolved, and all team members had up-to-date versions of the project.</p>
+                {this.state.smallScreen
+                    ?
+                    <div className={classes.MobilePanelContainer}>
+                        <ContentBlock>
+                            <h1 className={classes.MobilePanelsHeading}>Planning</h1>
+                            <div className={classes.MobilePanel} style={{ backgroundColor: 'rgb(198, 222, 192)' }}>
+                                <img src={gitBranchingImage} alt="Feature Branching Diagram" style={{ margin: '0' }} />
+                                <div className={classes.VersionControlBlurb}>
+                                    <h2>Git Feature Branching</h2>
+                                    <p>Our project was managed in a GitLab repository. We researched early on how to effectively use Git and decided on the ‘Feature Branching’ workflow. We would individually work on features on our own branches and when completed would push to upstream, informing the other team members we had done so. The other team members would then pull from upstream, alerting them to any potential merge conflicts with their features. These conflicts would be more easily resolved while actively working on these conflicting areas. This worked extremely well as conflicts were regularly identified and resolved, and all team members had up-to-date versions of the project.</p>
+                                </div>
                             </div>
-                        </div>
-                        <div className={classes.DatabasePlan}>
-                            <div className={classes.DatabasePlanBlurb}>
-                                <h2>Database Design</h2>
-                                <p>The database we used was SQL so we started by outlining the entities, their attributes and relationships between them. We decided that the primary keys for users, articles and comments would all be automatically generated integers (using not null primary key in the SQL set-up). <br />
-                                    <br />
-                            The main entity was the users as they have relationships with all of the other entities, and have the most attributes. The articles and comments both had userId as foreign keys, as they each have exactly one user that posts them. However, comments differed from articles because a comment also had and articleId foreign key, again because a comment is associated with one article. Additionally comments had a replyTo_Id attribute that was a foreign key of commentId. This was to add in the functionality of being able to reply to comments.  </p>
+                        </ContentBlock>
+                        <ContentBlock>
+                            <div className={classes.MobilePanel} style={{ backgroundColor: 'rgb(51, 52, 47)' }}>
+                                <div className={classes.DatabasePlanBlurb} style={{ color: 'rgb(198, 222, 192)' }}>
+                                    <h2>Database Design</h2>
+                                    <p>The database we used was SQL so we started by outlining the entities, their attributes and relationships between them. We decided that the primary keys for      users, articles and comments would all be automatically generated integers (using not null primary key in the SQL set-up). <br />
+                                        <br />
+                                        The main entity was the users as they have relationships with all of the other entities, and have the most attributes. The articles and comments both had userId as foreign keys, as they each have exactly one user that posts them. However, comments differed from articles because a comment also had and articleId foreign key, again because a comment is associated with one article. Additionally comments had a replyTo_Id attribute that was a foreign key of commentId. This was to add in the functionality of being able to reply to comments.  </p>
+                                </div>
+                                <img src={databasePlanImage} alt="Database Plan" style={{ margin: '0' }} />
                             </div>
-                            <img src={databasePlanImage} alt="Database Plan" />
-                        </div>
+                        </ContentBlock>
                     </div>
-                </ContentBlock>
+                    :
+                    <ContentBlock>
+                        <div className={classes.CB2}>
+                            <h1>Planning</h1>
+                            <div className={classes.VersionControl}>
+                                <img src={gitBranchingImage} alt="Feature Branching Diagram" />
+                                <div className={classes.VersionControlBlurb}>
+                                    <h2>Git Feature Branching</h2>
+                                    <p>Our project was managed in a GitLab repository. We researched early on how to effectively use Git and decided on the ‘Feature Branching’ workflow. We would individually work on features on our own branches and when completed would push to upstream, informing the other team members we had done so. The other team members would then pull from upstream, alerting them to any potential merge conflicts with their features. These conflicts would be more easily resolved while actively working on these conflicting areas. This worked extremely well as conflicts were regularly identified and resolved, and all team members had up-to-date versions of the project.</p>
+                                </div>
+                            </div>
+                            <div className={classes.DatabasePlan}>
+                                <div className={classes.DatabasePlanBlurb}>
+                                    <h2>Database Design</h2>
+                                    <p>The database we used was SQL so we started by outlining the entities, their attributes and relationships between them. We decided that the primary keys for      users, articles and comments would all be automatically generated integers (using not null primary key in the SQL set-up). <br />
+                                        <br />
+                                        The main entity was the users as they have relationships with all of the other entities, and have the most attributes. The articles and comments both had userId as foreign keys, as they each have exactly one user that posts them. However, comments differed from articles because a comment also had and articleId foreign key, again because a comment is associated with one article. Additionally comments had a replyTo_Id attribute that was a foreign key of commentId. This was to add in the functionality of being able to reply to comments.  </p>
+                                </div>
+                                <img src={databasePlanImage} alt="Database Plan" />
+                            </div>
+                        </div>
+                    </ContentBlock>
+                }
 
-                <ContentBlock>
-                    <div className={classes.SignUpBlock}>
-                        <div className={classes.SignUpFormImg} style={{ backgroundImage: `url(${signUpImage})` }}></div>
-                        <div className={classes.SignUpRightBlock}>
-                            <div className={classes.SignUpBlurb}>
-                                <h1>Sign Up</h1>
-                                <p>The account creation page was the form seen on the left. <br />
+                {this.state.smallScreen
+                    ?
+                    <div className={classes.MobilePanelContainer}>
+                        <h1 className={classes.MobilePanelsHeading}>Sign Up</h1>
+                        <ContentBlock>
+                            <div className={classes.SignUpFormImg} style={{ backgroundImage: `url(${signUpImage})` }}></div>
+                        </ContentBlock>
+                        <ContentBlock>
+                            <div className={classes.SignUpBlock} >
+                                <div className={classes.SignUpRightBlock}>
+                                    <div className={classes.SignUpBlurb}>
+                                        <p>The account creation page was the form seen above. <br />
                                 This form was submitted to the database using a POST request through Express and a custom Data Access Object module. <br />
                                 On the database the user's password was not stored as plaintext. Instead, the NPM module 'Crypto' was used to salt and hash the password. <br />
-                                    <br />
-                                    <br />
+                                            <br />
+                                            <br />
                                 Below is the Avatar selction interface, which was located beneath the form on the website.
                                 This gave users the option to upload an avatar of their own choosing. The NPM module 'fs' renamed and saved the file in the public folder, followed by the 'Jimp' module resizing the image to a thumbnail and overwriting the original full-sized image. <br />
                                 Care was taken so that only one image could be uploaded or selected.
                             </p>
-                                <img src={avatarSelectionImg} alt="" />
+                                        <img src={avatarSelectionImg} alt="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </ContentBlock>
+                    </div>
+                    :
+                    <ContentBlock>
+                        <div className={classes.SignUpBlock}>
+                            <div className={classes.SignUpFormImg} style={{ backgroundImage: `url(${signUpImage})`}}></div>
+                            <div className={classes.SignUpRightBlock}>
+                                <div className={classes.SignUpBlurb}>
+                                    <p>The account creation page was the form seen on the left. <br />
+                                This form was submitted to the database using a POST request through Express and a custom Data Access Object module. <br />
+                                On the database the user's password was not stored as plaintext. Instead, the NPM module 'Crypto' was used to salt and hash the password. <br />
+                                        <br />
+                                        <br />
+                                Below is the Avatar selction interface, which was located beneath the form on the website.
+                                This gave users the option to upload an avatar of their own choosing. The NPM module 'fs' renamed and saved the file in the public folder, followed by the 'Jimp' module resizing the image to a thumbnail and overwriting the original full-sized image. <br />
+                                Care was taken so that only one image could be uploaded or selected.
+                            </p>
+                                    <img src={avatarSelectionImg} alt="" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </ContentBlock>
-
+                    </ContentBlock>
+                }
                 <ContentBlock>
                     <div className={classes.Profile}>
                         <h1>Profile Page</h1>
