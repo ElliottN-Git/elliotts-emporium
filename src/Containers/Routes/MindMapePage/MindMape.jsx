@@ -11,6 +11,7 @@ import profilePageImg from '../../../assets/images/MindMape/profilePage3.png';
 import writeArticleImg from '../../../assets/images/MindMape/WriteArticle.png';
 import articlesPageImg from '../../../assets/images/MindMape/Articles page.png';
 import commentSectionImg from '../../../assets/images/MindMape/WriteComment.png';
+import ProfanityFilterExample from '../../../assets/images/MindMape/Banned Username.gif';
 
 //Components
 import Aux from '../../../hoc/Auxillary/Auxillary';
@@ -21,7 +22,24 @@ class MindMape extends Component {
     state = {
         showCommentsExpanded: false,
         showArticlesExpanded: false,
-        showWriteExpanded: false
+        showWriteExpanded: false,
+        smallScreen: false
+    }
+
+    componentDidMount = () => {
+        const widthCheck = window.innerWidth;
+        console.log(`WidthCheck: ${widthCheck}`);
+
+        // const heightCheck = document.body.scrollHeight;
+
+        if (widthCheck <= 1000) {
+            this.smallScreenHandler();
+        }
+    }
+
+    smallScreenHandler() {
+        this.setState({ smallScreen: true });
+        // console.log(this.state.smallScreen);
     }
 
     //TODO finesse the positioning of these expanding divs
@@ -130,90 +148,122 @@ class MindMape extends Component {
                 </ContentBlock>
 
 
-                {/* This whole section needs to be revised */}
-                <ContentBlock>
-                    <div className={classes.Articles}>
-                        <h1>Articles and Comments</h1>
-                        <h2>Click on the images for more info!</h2>
-                        <div className={classes.PanelContainer}>
-                            <Backdrop show={this.state.showArticlesExpanded} clicked={this.articlesAndCommentsClickHandler} />
-                            <Backdrop show={this.state.showWriteExpanded} clicked={this.articlesAndCommentsClickHandler} />
-                            <div className={classes.ArticlesPanel}>
-                                <div onClick={this.articlesAndCommentsClickHandler}
-                                    style={{
-                                        transform: this.state.showArticlesExpanded ? 'scale(1.5) translate(25%, 5vh)' : '',
-                                        transformOrigin: 'top',
-                                        width: this.state.showArticlesExpanded ? '100%' : '',
-                                        zIndex: this.state.showArticlesExpanded ? '51' : '',
-                                        borderRadius: this.state.showArticlesExpanded ? '5px' : '0',
-                                    }}>
-                                    <h3 style={{
-                                    transform: this.state.showArticlesExpanded ? 'translateY(0)' : 'translateY(50px)',
-                                    transitionDuration: '0.5s'
-                                    }}>All users can view articles.</h3>
-                                    <p style={{
-                                        transform: this.state.showArticlesExpanded ? 'translateY(0)' : 'translateY(70px)',
-                                        transitionDuration: '0.5s',
-                                        zIndex: this.state.showArticlesExpanded ? '1' : '-1',
-                                        opacity: this.state.showArticlesExpanded ? '1' : '0'
-                                    }}>The home page of MindMape is a list of all of the articles posted, with the most recent at the top.</p>
-                                    <img src={articlesPageImg} alt="Articles" />
-                                </div>
-                                <div onClick={this.articlesAndCommentsClickHandler}
-                                    style={{
-                                        transform: this.state.showWriteExpanded ? 'scale(1.5) translate(-25%, 5vh)' : '',
-                                        transformOrigin: 'top',
-                                        width: this.state.showWriteExpanded ? '100%' : '',
-                                        zIndex: this.state.showWriteExpanded ? '51' : '',
-                                        borderRadius: this.state.showWriteExpanded ? '5px' : '0',
-                                    }}>
-                                    <h3 style={{
-                                        transform: this.state.showWriteExpanded ? 'translateY(0)' : 'translateY(90px)',
-                                        transitionDuration: '0.5s'
-                                    }}>Logged in users can write articles and comments.</h3>
-                                    <p style={{
-                                        transform: this.state.showWriteExpanded ? 'translateY(0)' : 'translateY(200px)',
-                                        transitionDuration: '0.5s',
-                                        zIndex: this.state.showWriteExpanded ? '1' : '-1',
-                                        opacity: this.state.showWriteExpanded ? '1' : '0'
-                                    }}>To write articles an embedded WYSIWYG editor, TinyMCE, was used. This allowed full editing of the text and images could be imported.<br /> 
-                                    Any styling and images were maintained as the article was saved as HTML on the server.</p>
-                                    <img src={writeArticleImg} alt="Write" />
-                                </div>
+                {/* This whole section needs to be revised? */}
+                {/* TODO add in conditional content blocks */}
+                {this.state.smallScreen
+                    ?
+                    <div className={classes.MobilePanelContainer}>
+                        <h1 className={classes.MobilePanelsHeading}>Articles and Comments</h1>
+                        <ContentBlock>
+                            <div className={classes.MobilePanel} style={{ backgroundColor: 'rgb(51, 52, 47)', color: 'rgb(198, 222, 192)' }}>
+                                <h3>All users can view articles. The home page of MindMape is a list of all of the articles posted, with the most recent at the top.</h3>
+                                <img src={articlesPageImg} alt="Articles" />
                             </div>
-                            <Backdrop show={this.state.showCommentsExpanded} clicked={this.articlesAndCommentsClickHandler} />
-                            <div className={classes.CommentsPanel}>
-                                <div
-                                    onClick={this.articlesAndCommentsClickHandler}
-                                    style={{
-                                        transform: this.state.showCommentsExpanded ? 'scale(1.5) translateY(-10vh)' : '',
-                                        transformOrigin: 'bottom',
-                                        width: this.state.showCommentsExpanded ? '100%' : '',
-                                        zIndex: this.state.showCommentsExpanded ? '51' : '',
-                                        borderRadius: this.state.showCommentsExpanded ? '5px' : '0',
-                                    }}
-                                >
-                                    <h3 style={{
-                                        transform: this.state.showCommentsExpanded ? 'translateY(0)' : 'translateY(70px)',
-                                        transitionDuration: '0.5s'
-                                    }}>Each article has its own comments section.</h3>
-                                    <p style={{
-                                        transform: this.state.showCommentsExpanded ? 'translateY(0)' : 'translateY(100px)',
-                                        transitionDuration: '0.5s',
-                                        zIndex: this.state.showCommentsExpanded ? '1' : '-1',
-                                        opacity: this.state.showCommentsExpanded ? '1' : '0'
-                                    }}>The comments section below an article allows users to write a comment directly to the article, or reply to other comments.<br />These nested comments can be collapsed to reduce clutter.</p>
-                                    <img src={commentSectionImg} alt="Comments" />
+                        </ContentBlock>
+                        <ContentBlock>
+                            <div className={classes.MobilePanel} style={{ backgroundColor: 'rgb(198, 222, 192)', color: 'rgb(51, 52, 47)' }}>
+                                <h3>To write articles an embedded WYSIWYG editor, TinyMCE, was used. This allowed full editing of the text and images could be imported.<br />
+                                    Any styling and images were maintained as the article was saved as HTML on the server.</h3>
+                                <img src={writeArticleImg} alt="Write" />
+                            </div>
+                        </ContentBlock>
+                        <ContentBlock>
+                            <div className={classes.MobilePanel} style={{ backgroundColor: 'rgb(51, 52, 47)', color: 'rgb(198, 222, 192)' }}>
+                                <h3>The comments section below an article allows users to write a comment directly to the article, or reply to other comments.<br />These nested comments can be collapsed to reduce clutter.</h3>
+                                <img src={commentSectionImg} alt="Comments" />
+                            </div>
+                        </ContentBlock>
+                    </div>
+                    :
+                    <ContentBlock>
+                        <div className={classes.Articles}>
+                            <h1>Articles and Comments</h1>
+                            <h2>Click on the images for more info!</h2>
+                            <div className={classes.PanelContainer}>
+                                <Backdrop show={this.state.showArticlesExpanded} clicked={this.articlesAndCommentsClickHandler} />
+                                <Backdrop show={this.state.showWriteExpanded} clicked={this.articlesAndCommentsClickHandler} />
+                                <div className={classes.ArticlesPanel}>
+                                    <div onClick={this.articlesAndCommentsClickHandler}
+                                        style={{
+                                            transform: this.state.showArticlesExpanded ? 'scale(1.5) translate(25%, 5vh)' : '',
+                                            transformOrigin: 'top',
+                                            width: this.state.showArticlesExpanded ? '100%' : '',
+                                            zIndex: this.state.showArticlesExpanded ? '51' : '',
+                                            borderRadius: this.state.showArticlesExpanded ? '5px' : '0',
+                                        }}>
+                                        <h3 style={{
+                                            transform: this.state.showArticlesExpanded ? 'translateY(0)' : 'translateY(50px)',
+                                            transitionDuration: '0.5s'
+                                        }}>All users can view articles.</h3>
+                                        <p style={{
+                                            transform: this.state.showArticlesExpanded ? 'translateY(0)' : 'translateY(70px)',
+                                            transitionDuration: '0.5s',
+                                            zIndex: this.state.showArticlesExpanded ? '1' : '-1',
+                                            opacity: this.state.showArticlesExpanded ? '1' : '0'
+                                        }}>The home page of MindMape is a list of all of the articles posted, with the most recent at the top.</p>
+                                        <img src={articlesPageImg} alt="Articles" />
+                                    </div>
+                                    <div onClick={this.articlesAndCommentsClickHandler}
+                                        style={{
+                                            transform: this.state.showWriteExpanded ? 'scale(1.5) translate(-25%, 5vh)' : '',
+                                            transformOrigin: 'top',
+                                            width: this.state.showWriteExpanded ? '100%' : '',
+                                            zIndex: this.state.showWriteExpanded ? '51' : '',
+                                            borderRadius: this.state.showWriteExpanded ? '5px' : '0',
+                                        }}>
+                                        <h3 style={{
+                                            transform: this.state.showWriteExpanded ? 'translateY(0)' : 'translateY(90px)',
+                                            transitionDuration: '0.5s'
+                                        }}>Logged in users can write articles and comments.</h3>
+                                        <p style={{
+                                            transform: this.state.showWriteExpanded ? 'translateY(0)' : 'translateY(200px)',
+                                            transitionDuration: '0.5s',
+                                            zIndex: this.state.showWriteExpanded ? '1' : '-1',
+                                            opacity: this.state.showWriteExpanded ? '1' : '0'
+                                        }}>To write articles an embedded WYSIWYG editor, TinyMCE, was used. This allowed full editing of the text and images could be imported.<br />
+                                    Any styling and images were maintained as the article was saved as HTML on the server.</p>
+                                        <img src={writeArticleImg} alt="Write" />
+                                    </div>
+                                </div>
+                                <Backdrop show={this.state.showCommentsExpanded} clicked={this.articlesAndCommentsClickHandler} />
+                                <div className={classes.CommentsPanel}>
+                                    <div
+                                        onClick={this.articlesAndCommentsClickHandler}
+                                        style={{
+                                            transform: this.state.showCommentsExpanded ? 'scale(1.5) translateY(-10vh)' : '',
+                                            transformOrigin: 'bottom',
+                                            width: this.state.showCommentsExpanded ? '100%' : '',
+                                            zIndex: this.state.showCommentsExpanded ? '51' : '',
+                                            borderRadius: this.state.showCommentsExpanded ? '5px' : '0',
+                                        }}
+                                    >
+                                        <h3 style={{
+                                            transform: this.state.showCommentsExpanded ? 'translateY(0)' : 'translateY(70px)',
+                                            transitionDuration: '0.5s'
+                                        }}>Each article has its own comments section.</h3>
+                                        <p style={{
+                                            transform: this.state.showCommentsExpanded ? 'translateY(0)' : 'translateY(100px)',
+                                            transitionDuration: '0.5s',
+                                            zIndex: this.state.showCommentsExpanded ? '1' : '-1',
+                                            opacity: this.state.showCommentsExpanded ? '1' : '0'
+                                        }}>The comments section below an article allows users to write a comment directly to the article, or reply to other comments.<br />These nested comments can be collapsed to reduce clutter.</p>
+                                        <img src={commentSectionImg} alt="Comments" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </ContentBlock>
+                    </ContentBlock>}
+
+
                 {/*  */}
 
                 <ContentBlock>
                     <div className={classes.ProfanityFilter}>
                         <h1>****ing Profanity Filter</h1>
+                        <p>The extra feature we decided to add was a site-wide profanity fitler. It was set up by creating a Regular Expression containing all of the banned words. The profanity filter custom module then used two functions to either assess whether a banned word was found in the input string, using the string.match() function and returning true or false. This was employed in the username check as it was decided that usernames could not contain profanity at all.</p>
+                        <img src={ProfanityFilterExample} alt="profanityFilterExample" />
+                        <p>The second method was to find the any banned words in the input string and replace them with “****”, returning this ‘censored’ string. The main implementation of this profanity filter was to optionally censor articles. To do this the articles were stored in the database uncensored. If the reader clicked the ‘read censored article’ button, the article was parsed and any banned words replaced.
+                        The profanity filter was also saved in a client-side javascript file as it was needed to check inputs such as usernames, and personal descriptions on the signup page. An option to censor an article on writing was also provided in the write article page.</p>
                     </div>
                 </ContentBlock>
             </Aux>
