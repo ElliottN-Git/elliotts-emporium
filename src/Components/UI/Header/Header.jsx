@@ -7,15 +7,21 @@ import classes from './Header.module.css';
 import headShot from '../../../assets/images/EN-headshotCircle.png';
 import enhancedBackground from '../../../assets/images/headerImgSpace.jpg';
 
-let style = {};
-
 class Header extends Component {
-    render() {
-        console.log(enhancedBackground);
+    state = {
+        bgLoaded: false,
+        headShotLoaded: false
+    }
 
-        style = { backgroundImage: `url(${enhancedBackground})` };
+    render() {
         return (
-            <div className={classes.Header} style={style}>
+            <div className={classes.Header} style={{backgroundImage: this.state.bgLoaded ? `url(${enhancedBackground})` : ''}}>
+                <img src={enhancedBackground} alt="enhBG" onLoad={() => this.setState({bgLoaded: true})}
+                style={{
+                    visibility: "hidden",
+                    position: "fixed",
+                    height: "0",
+                    width: "0"}} />
                 <img src={headShot} alt="Headshot" /> {/* Placeholder image */}
                 <h1>Hi! I'm Elliott.</h1>
                 {this.props.children}
