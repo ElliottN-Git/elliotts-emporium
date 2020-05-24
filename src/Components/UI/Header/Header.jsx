@@ -9,13 +9,11 @@ import enhancedBackground from '../../../assets/images/headerImgSpace.jpg';
 
 let style = {};
 
-console.log("enhancedBackground imported");
-console.log(enhancedBackground);
-style = { backgroundImage: `url(${enhancedBackground})` };
-
-
 class Header extends Component {
     render() {
+        console.log(enhancedBackground);
+
+        style = { backgroundImage: `url(${enhancedBackground})` };
         return (
             <div className={classes.Header} style={style}>
                 <img src={headShot} alt="Headshot" /> {/* Placeholder image */}
