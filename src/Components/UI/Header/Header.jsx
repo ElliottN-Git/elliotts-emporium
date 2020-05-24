@@ -22,7 +22,10 @@ class Header extends Component {
                     position: "fixed",
                     height: "0",
                     width: "0"}} />
-                <img src={headShot} alt="Headshot" /> {/* Placeholder image */}
+                <img src={headShot} alt="Headshot" 
+                    onLoad={() => {
+                        this.setState({headShotLoaded: true});
+                    }}/>
                 <h1>Hi! I'm Elliott.</h1>
                 {this.props.children}
             </div>
