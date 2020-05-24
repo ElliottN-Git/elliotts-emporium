@@ -1,23 +1,28 @@
 //Component that holds the header image
 
-import React from 'react';
+import React, { Component } from 'react';
 
 //CSS
 import classes from './Header.module.css';
-
 import headShot from '../../../assets/images/EN-headshotCircle.png';
+import enhancedBackground from '../../../assets/images/headerImgSpace.jpg';
 
-//Components
+let style = {};
+
+console.log("enhancedBackground imported");
+console.log(enhancedBackground);
+style = { backgroundImage: `url(${enhancedBackground})` };
 
 
-const Header = (props) => {
-    return (
-        <div className={classes.Header}>
-            <img src={headShot} alt="Headshot" /> {/* Placeholder image */}
-            <h1>Hi! I'm Elliott.</h1>
-            {props.children}
-        </div>
-    )
+class Header extends Component {
+    render() {
+        return (
+            <div className={classes.Header} style={style}>
+                <img src={headShot} alt="Headshot" /> {/* Placeholder image */}
+                <h1>Hi! I'm Elliott.</h1>
+                {this.props.children}
+            </div>
+        )
+    }
 }
-
 export default Header;
