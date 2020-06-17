@@ -15,18 +15,17 @@ class App extends Component {
   };
 
   componentDidMount() {
-    // this simulates an async action, after which the component will render the content
     this.setState({ loading: false });
   }
 
 
   render() {
     const { loading } = this.state;
-    
-    if(loading) { // if your component doesn't have to wait for an async action, remove this block 
+
+    if (loading) { // if component doesn't have to wait for an async action, remove this block 
       return null; // render null when app is not ready
     }
-    
+
     return (
       <BrowserRouter onUpdate={() => window.scrollTo(0, 0)}>
         <div>
@@ -34,6 +33,13 @@ class App extends Component {
             <ScrollToTop />
             <Route render={({ location }) => (
               <Switch location={location}>
+                <Route
+                  exact
+                  path="/"
+                  component={Home}
+                  key="home"
+                />
+
                 <Route
                   exact
                   path="/resume"
@@ -48,12 +54,7 @@ class App extends Component {
                   key="mindmape"
                 />
 
-                <Route
-                  exact
-                  path=""
-                  component={Home}
-                  key="home"
-                />
+                <Route render={() => <h1 style={{position: 'absolute', top: '40%', color: 'whitesmoke'}}>404: Page not found</h1>} />
               </Switch>
             )}
             />
@@ -63,9 +64,7 @@ class App extends Component {
     );
   }
 }
-// function demoAsyncCall() {
-//   return new Promise((resolve) => setTimeout(() => resolve(), 500));
-// }
+
 
 
 export default App;
