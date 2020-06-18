@@ -6,9 +6,6 @@ import React, { Component } from 'react';
 import classes from './Header.module.css';
 
 import heroImg from '../../../assets/images/heroImgBeach.png';
-import headerText from '../../../assets/images/heyImElliottTextTransparentBG.png';
-import headShot from '../../../assets/images/EN-headshotCircle.png';
-import enhancedBackground from '../../../assets/images/headerImgSpace.jpg';
 
 class Header extends Component {
 
