@@ -66,7 +66,7 @@
         /* This stops the 'bouncing' of the background image 
             on scroll on mobiles  */
         background-size: auto 225vw;
-        background-position: -225vw;
+        background-position: -225vw 0;
     }
     .Header .Blurb {
         top: 60vh;
@@ -81,7 +81,7 @@
         /* This stops the 'bouncing' of the background image 
             on scroll on mobiles  */
         background-size: auto 125vw;
-        background-position: -100vw;
+        background-position: -100vw 0;
     }
     .Header .Blurb {
         top: 70vh;
