@@ -7,7 +7,7 @@ import classes from './Layout.module.css';
 //
 
 //Components
-import NavBar from '../../Components/Navigation/NavBar';
+import NavBar from '../../Components/Navigation/NavBar/NavBar';
 import Aux from '../../hoc/Auxillary/Auxillary';
 import DownScrollChevron from '../../Components/UI/ScrollChevron/DownScrollChevron';
 import UpScrollChevron from '../../Components/UI/ScrollChevron/UpScrollChevron';
@@ -18,7 +18,8 @@ class Layout extends Component {
         navShrink: false,
         showUpScrollChevron: true,
         showDownScrollChevron: true,
-        currentScrollBlock: 1
+        currentScrollBlock: 1,
+        showSideDrawer: false
     }
 
     componentDidMount = () => {

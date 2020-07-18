@@ -8,6 +8,7 @@ import Layout from './Containers//Layout/Layout';
 import Home from './Containers/Routes/Home'
 import ResumePage from './Containers/Routes/ResumePage/ResumePage';
 import MindMapePage from './Containers/Routes/MindMapePage/MindMape';
+import BurgerBuilder from './Containers/Routes/BurgerBuilderPage/BurgerBuilder';
 
 class App extends Component {
   state = {
@@ -51,6 +52,13 @@ class App extends Component {
                   exact
                   path="/mindmape"
                   component={MindMapePage}
+                  key="mindmape"
+                />
+                
+                <Route
+                  exact
+                  path="/burgerbuilder"
+                  component={BurgerBuilder}
                   key="mindmape"
                 />
 
