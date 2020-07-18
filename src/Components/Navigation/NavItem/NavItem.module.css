@@ -1,0 +1,36 @@
+.NavItem {
+    height: 40px;
+    text-decoration: none;
+    border: 1px solid black;
+    
+    padding: 10px;
+    margin: 10px;
+    padding-bottom: 0;
+    text-align: center;
+    justify-content: center;
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.active {
+    height: 40px;
+    text-decoration: none;
+    
+    padding: 10px;
+    margin: 10px;
+    padding-bottom: 0;
+    text-align: center;
+    justify-content: center;
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
