@@ -54,15 +54,11 @@ class App extends Component {
                   component={MindMapePage}
                   key="mindmape"
                 />
-                
-                <Route
-                  exact
-                  path="/burgerbuilder"
-                  component={BurgerBuilder}
-                  key="mindmape"
+
+                <Route path='/burgerbuilder' component={BurgerBuilder}
                 />
 
-                <Route render={() => <h1 style={{position: 'absolute', top: '40%', color: 'whitesmoke'}}>404: Page not found</h1>} />
+                <Route render={() => <h1 style={{ position: 'absolute', top: '40%', color: 'whitesmoke' }}>404: Page not found</h1>} />
               </Switch>
             )}
             />
