@@ -1,6 +1,8 @@
 .NavigationItems {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    
+    display: block;
+    float: right;
+    height: 100%;
+    width: auto;
+    margin: 0px;
+    transition: 500ms ease-in-out;
 }

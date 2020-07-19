@@ -77,7 +77,7 @@ class Layout extends Component {
     }
 
     render() {
-        let navHeight = {};
+        let navHeight = null;
         if (this.state.navShrink) {
             navHeight = { height: "40px", backgroundColor: "rgba(25,25,25,1)", boxShadow: "0 1px 2px 0 rgba(201, 197, 197, 0.25)" };
         }
