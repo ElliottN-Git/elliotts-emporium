@@ -11,7 +11,7 @@ const NavBar = (props) => {
     return (
         <div className={classes.NavBar} style={props.navShrink}>
             <img src={ENLogo} alt="EN"/>
-                <NavItems />
+                <NavItems navShrink={props.navShrink}/>
         </div>
     )
 }

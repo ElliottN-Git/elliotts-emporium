@@ -1,36 +1,17 @@
 .NavItem {
-    height: 40px;
-    text-decoration: none;
-    border: 1px solid black;
-    
-    padding: 10px;
-    margin: 10px;
-    padding-bottom: 0;
+    float: left;
     text-align: center;
-    justify-content: center;
-    color: whitesmoke;
+    padding: 10px 15px 0px;
+    margin: 0px 15px;
     text-decoration: none;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
+    list-style: none;
+    font-size: 17px;
+    background-color: rgba(255, 255, 255, 0.33);
+    box-shadow: 0px 0px 5px 1px rgba(25, 25, 25, 0.3);
+    height: 30px;
+    transition: 500ms ease-in-out;
 }
 
-.active {
-    height: 40px;
-    text-decoration: none;
-    
-    padding: 10px;
-    margin: 10px;
-    padding-bottom: 0;
-    text-align: center;
-    justify-content: center;
-    color: whitesmoke;
-    text-decoration: none;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: normal;
-    letter-spacing: normal;
+.NavItem a {
+    color: black;
 }
