@@ -7,7 +7,10 @@
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;    
+    background-size: cover;
+
+    /* overflow-y: scroll;
+    scroll-snap-type: y mandatory; */
 }
 
 .Header .Blurb {
@@ -57,8 +60,13 @@
 }
 
 @keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
 @media only screen and (max-width: 600px) {
@@ -68,6 +76,7 @@
         background-size: auto 225vw;
         background-position: -225vw 0;
     }
+
     .Header .Blurb {
         top: 60vh;
         left: 0;
@@ -83,6 +92,7 @@
         background-size: auto 125vw;
         background-position: -100vw 0;
     }
+
     .Header .Blurb {
         top: 70vh;
         left: 0;

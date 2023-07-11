@@ -167,7 +167,7 @@ class MindMape extends Component {
                         </ContentBlock>
                     </div>
                     :
-                    <ContentBlock>
+                    <ContentBlock backgroundColour={'white'}>
                         <div className={classes.SignUpBlock}>
                             <div className={classes.SignUpFormImg} style={{ backgroundImage: `url(${signUpImage})`}}></div>
                             <div className={classes.SignUpRightBlock}>

@@ -8,6 +8,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     /* background-image: url('../../../assets/images/BGimg2.jpg'); */
+    /* background: linear-gradient(454deg, #4f4080, #f8f7fa); */
+    
+    /* scroll-snap-align: start; */
 }
 
 @media only screen and (max-width: 500px) {

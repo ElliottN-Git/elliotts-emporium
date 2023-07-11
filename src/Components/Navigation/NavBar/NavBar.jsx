@@ -11,9 +11,11 @@ import Dropdown from '../../UI/Dropdown/Dropdown';
 const NavBar = (props) => {
     return (
         <div className={classes.NavBar} style={props.navShrink}>
-            <img src={ENLogo} alt="EN"/> {/* Add link to home */}
-            <Dropdown navShrink={props.navShrink}/>
-            <NavItems navShrink={props.navShrink}/>
+            <a href='/'>
+                <img src={ENLogo} alt="EN" /> {/* Add link to home */}
+            </a>
+            <Dropdown navShrink={props.navShrink} />
+            <NavItems navShrink={props.navShrink} />
         </div>
     )
 }

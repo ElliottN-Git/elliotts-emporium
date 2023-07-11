@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 //CSS and assets
-import aboutMeBackgroundImage from '../../assets/images/BGimg2.jpg';
+// import aboutMeBackgroundImage from '../../assets/images/chemistrybg.jpg';
 
 //Colour codes from CV
 //Header Background Colour
@@ -52,7 +52,7 @@ export default class Home extends Component {
             <Aux>
                 <Header>
                 </Header>
-                <ContentBlock backgroundImage={aboutMeBackgroundImage}>
+                <ContentBlock backgroundColour={'linear-gradient(454deg, #404c80, #53ff88)'}>
                     <AboutMe>
                         <Dashboard clicked={this.resumeOpenedHandler}>
                             <Modal show={this.state.showResume} modalClosed={this.resumeClosedHandler} modalLink={this.state.modalLink}></Modal>

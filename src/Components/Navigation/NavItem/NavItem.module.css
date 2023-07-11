@@ -16,7 +16,7 @@
     color: black;
     text-decoration: none;
     transition: transform 100ms ease-in-out;
-    height: inherit;
+    height: 100%;
 }
 
 .NavItem .active {

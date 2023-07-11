@@ -44,7 +44,10 @@ class Projects extends Component {
         if (this.state.smallScreen) {
             return (
                 <Aux>
-                    <ContentBlock backgroundImage={projectsBackgroundImage} className={classes.ProjectsContentBlock}>
+                    <ContentBlock
+                        className={classes.ProjectsContentBlock}
+                        backgroundColour={'linear-gradient(454deg, #9574ff, #ff5353)'}
+                    >
                         <div className={classes.Projects}>
                             <div className={classes.MindMape}>
                                 <div className={classes.Blurb}>
@@ -61,7 +64,10 @@ class Projects extends Component {
                         </div>
                     </ContentBlock>
 
-                    <ContentBlock backgroundImage={projectsBackgroundImage} className={classes.ProjectsContentBlock}>
+                    <ContentBlock
+                        className={classes.ProjectsContentBlock}
+                        backgroundColour={'linear-gradient(454deg, #9574ff, #ff5353)'}
+                    >
                         <div className={classes.Projects}>
 
                             <div className={classes.BurgerBuilder}>
@@ -80,7 +86,10 @@ class Projects extends Component {
                         </div>
                     </ContentBlock>
 
-                    <ContentBlock backgroundImage={projectsBackgroundImage} className={classes.ProjectsContentBlock}>
+                    <ContentBlock
+                        className={classes.ProjectsContentBlock}
+                        backgroundColour={'linear-gradient(454deg, #9574ff, #ff5353)'}
+                    >
                         <div className={classes.Projects}>
 
                             <div className={classes.ThisWebsite}>
@@ -98,7 +107,10 @@ class Projects extends Component {
 
             return (
                 <Aux>
-                    <ContentBlock backgroundImage={projectsBackgroundImage} className={classes.ProjectsContentBlock}>
+                    <ContentBlock
+                        className={classes.ProjectsContentBlock}
+                        backgroundColour={'linear-gradient(454deg, #9574ff, #ff5353)'}
+                    >
                         <div className={classes.Projects}>
                             <div className={classes.MindMape}>
                                 <div className={classes.Blurb}>

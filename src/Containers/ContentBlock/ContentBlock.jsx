@@ -11,13 +11,17 @@ import Background from '../../Components/UI/Background/Background';
 export class ContentBlock extends Component {
     render() {
         let heightAdjust = {};
-        if(this.props.topBlock) {
+        if (this.props.topBlock) {
             heightAdjust = { height: "100vh" };
         }
 
         return (
             <Aux>
-                <Background backgroundImage={this.props.backgroundImage}>
+                <Background
+                    backgroundType={this.props.backgroundType}
+                    backgroundImage={this.props.backgroundImage}
+                    backgroundColour={this.props.backgroundColour}
+                >
                     <div className={classes.ContentBlock} style={heightAdjust}>
                         {this.props.children}
                     </div>
