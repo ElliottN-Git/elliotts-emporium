@@ -6,6 +6,7 @@ import classes from './Modal.module.css';
 //Components
 import Aux from '../../../hoc/Auxillary/Auxillary';
 import Backdrop from '../Backdrop/Backdrop';
+//import ResumePDF from '../../../assets/pdfs/Elliott Nixon - CV.pdf';
 
 class Modal extends Component {
 
@@ -22,7 +23,7 @@ class Modal extends Component {
                     }}
                 >
                     <button type="button" onClick={this.props.modalClosed}>Close</button>
-                    <iframe src="https://firebasestorage.googleapis.com/v0/b/elliotts-emporium.appspot.com/o/Elliott%20Nixon%20-%20CV.pdf?alt=media&token=dda90261-ea39-40dc-97a8-bf2f45f7baa8" title="resume PDF"></iframe>
+                    <iframe src={this.props.modalLink} title="Resumé PDF"></iframe>
                 </div>
             </Aux>
         )

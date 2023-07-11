@@ -24,7 +24,7 @@ class Projects extends Component {
 
     componentDidMount = () => {
         const widthCheck = window.innerWidth;
-        console.log(`WidthCheck: ${widthCheck}`);
+        //console.log(`WidthCheck: ${widthCheck}`);
 
         // const heightCheck = document.body.scrollHeight;
 
@@ -40,7 +40,7 @@ class Projects extends Component {
 
 
     render() {
-        console.log(this.state.smallScreen);
+        //console.log(this.state.smallScreen);
         if (this.state.smallScreen) {
             return (
                 <Aux>

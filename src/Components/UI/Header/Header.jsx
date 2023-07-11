@@ -24,7 +24,7 @@ class Header extends Component {
             //         }}/>
             <div className={classes.Header} style={{backgroundImage: `url(${heroImg})`}}>
                 <div className={classes.Blurb}>
-                    <h3>Hey, I'm</h3>
+                    <h3>Hi, I'm</h3>
                     <h1>ELLIOTT NIXON</h1>
                     {/* <p>and what follows is why I think you should hire me...</p> */}
                 </div>

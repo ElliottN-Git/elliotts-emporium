@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-
+import React, { Component } from 'react';
 //CSS and assets
 import aboutMeBackgroundImage from '../../assets/images/BGimg2.jpg';
 
@@ -21,19 +20,25 @@ import ContentBlock from '../ContentBlock/ContentBlock';
 import AboutMe from '../AboutMe/AboutMe';
 import Projects from '../Projects/Projects';
 
-
 export default class Home extends Component {
 
     state = {
         showResume: false,
+        modalLink: ''
     }
 
     //Handlers for opening and closing the resume modal
     resumeOpenedHandler = (event) => {
-        this.setState({ showResume: true });
+        //const ResumePDF = "Elliott Nixon - CV.pdf";
+        this.setState({
+            showResume: true,
+            modalLink: "https://firebasestorage.googleapis.com/v0/b/elliotts-emporium.appspot.com/o/Elliott%20Nixon%20-%20CV.pdf?alt=media&token=71238e41-fbb8-41a8-9153-e18c7c6db2ce"
+        });
+
         event.preventDefault();
         //Locks body scrolling when the modal is open
         document.body.style.overflowY = "hidden";
+        //
     }
 
     resumeClosedHandler = () => {
@@ -50,7 +55,7 @@ export default class Home extends Component {
                 <ContentBlock backgroundImage={aboutMeBackgroundImage}>
                     <AboutMe>
                         <Dashboard clicked={this.resumeOpenedHandler}>
-                            <Modal show={this.state.showResume} modalClosed={this.resumeClosedHandler}></Modal>
+                            <Modal show={this.state.showResume} modalClosed={this.resumeClosedHandler} modalLink={this.state.modalLink}></Modal>
                         </Dashboard>
                     </AboutMe>
                 </ContentBlock>

@@ -42,7 +42,7 @@ class Layout extends Component {
 
     scrollFromTopListener = (event) => {
         let scrollHeight = window.scrollY;
-        console.log(scrollHeight);
+        //console.log(scrollHeight);
         if (scrollHeight > 50) {
             this.setState({ navShrink: true });
         } else {

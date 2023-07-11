@@ -15,6 +15,12 @@
     width: auto;
 }
 
+.ResumePage iframe {
+    height: calc(100vh - 45px);
+    width: 80%;
+    margin-top: 41px;
+}
+
 @media only screen and (max-width: 500px) {
     .ResumePage {
         height: calc(100vh - 40px);

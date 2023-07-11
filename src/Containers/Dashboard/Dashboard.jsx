@@ -26,7 +26,7 @@ export default class Dashboard extends Component {
         return (
             <Aux>
                 <div className={classes.Dashboard}>
-                    <ResumeTile clicked={this.props.clicked} />
+                    <ResumeTile clicked={this.props.clicked}/>
                     {tiles.map(tile => (
                         <Tile
                             key={tile.id}
