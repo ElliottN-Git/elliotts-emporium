@@ -2,7 +2,7 @@ import React from 'react';
 
 //CSS and Assets
 import classes from './Projects.module.css';
-import projectsBackgroundImage from '../../assets/images/testDynamicBG.jpg'
+// import projectsBackgroundImage from '../../assets/images/testDynamicBG.jpg'
 import MindMapeImg from '../../assets/images/MindMape/loginpage.png';
 import BurgerBuilderImg from '../../assets/images/BurgerBuilder/BuildPage.png';
 import ThisWebsiteImg from '../../assets/images/ThisWebsite/thisSiteFaviconBig.png';
