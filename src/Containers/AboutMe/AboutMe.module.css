@@ -7,17 +7,18 @@
 }
 
 .AboutMe {
-    height: auto;
+    height: 90%;
     width: auto;
     margin-top: 10px;
-    margin-left: 10vw;
-    margin-right: 10vw;
+    margin-left: 7vw;
+    margin-right: 7vw;
     margin-bottom: 10px;
     padding: 1%;
     border-radius: 5px;
     background-color: rgb(25, 25, 25);
     align-items: center;
     justify-self: center;
+    overflow: scroll;
 }
 
 .AboutMe h1 {
@@ -29,17 +30,19 @@
 
 .AboutMe p {
     color: whitesmoke;
-    font-size: 2vmin;
+    font-size: 1.9vmin;
+    line-height: 150%;
+    text-align: left;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 800px) {
     .Container {
         flex-direction: column;
         justify-content: flex-start;
     }
 
     .AboutMe {
-        height: ;
+        height: 100%;
     }
     .AboutMe h1 {
         font-size: 3.4vmax;

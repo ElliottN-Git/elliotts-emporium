@@ -4,7 +4,7 @@ body {
   margin: 0;
 }
 
-.loader:empty,
+/* .loader:empty,
 .loader:empty:before,
 .loader:empty:after {
   background: #ffffff;
@@ -63,4 +63,4 @@ body {
     box-shadow: 0 -2em;
     height: 5em;
   }
-}
+} */
