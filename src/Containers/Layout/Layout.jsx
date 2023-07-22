@@ -55,7 +55,7 @@ class Layout extends Component {
         const windowHeight = window.innerHeight - 40;
         let currentY = window.scrollY;
         let currentScrollBlock = this.state.currentScrollBlock;
-        console.log(currentScrollBlock);
+        // console.log(currentScrollBlock);
         let currentYAdjustment = Math.ceil((currentY - 1) / windowHeight);
         if (currentScrollBlock === currentYAdjustment) {
             window.scrollTo({ top: ((currentScrollBlock) * windowHeight) - windowHeight, behavior: "smooth" })
@@ -71,7 +71,7 @@ class Layout extends Component {
         const windowHeight = window.innerHeight - 40;
         let currentY = window.scrollY;
         let currentScrollBlock = this.state.currentScrollBlock;
-        console.log(currentScrollBlock);
+        // console.log(currentScrollBlock);
         let currentYAdjustment = Math.ceil((currentY + 1) / windowHeight);
         currentYAdjustment = currentScrollBlock - currentYAdjustment;
         window.scrollTo({ top: ((currentScrollBlock - currentYAdjustment) * windowHeight), behavior: "smooth" });

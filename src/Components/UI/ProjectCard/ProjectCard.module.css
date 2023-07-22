@@ -1,0 +1,17 @@
+.CardScrollViewRef {
+    width: fit-content;
+    height: fit-content;
+    justify-self: center;
+    align-items: start;
+    justify-content: start;
+}
+
+.ProjectCard {
+    background-color: rgb(183, 183, 183);
+    width: 25vw;
+    height: 33vh;
+    justify-self: center;
+    font-size: 1.8vw;
+    border-radius: 5px;
+    overflow: hidden;
+}

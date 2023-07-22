@@ -1,155 +1,124 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+
+import { useAnimation } from 'framer-motion';
+import { useInView } from "react-intersection-observer";
 
 //CSS and Assets
 import classes from './Projects.module.css';
 // import projectsBackgroundImage from '../../assets/images/testDynamicBG.jpg'
-import MindMapeImg from '../../assets/images/MindMape/loginpage.png';
-import BurgerBuilderImg from '../../assets/images/BurgerBuilder/BuildPage.png';
-import ThisWebsiteImg from '../../assets/images/ThisWebsite/thisSiteFaviconBig.png';
+// import MindMapeImg from '../../assets/images/MindMape/loginpage.png';
+// import BurgerBuilderImg from '../../assets/images/BurgerBuilder/BuildPage.png';
+// import ThisWebsiteImg from '../../assets/images/ThisWebsite/thisSiteFaviconBig.png';
+import ProjectCard from '../../Components/UI/ProjectCard/ProjectCard.jsx';
 
 //Components
-import ContentBlock from '../ContentBlock/ContentBlock';
+// import ContentBlock from '../ContentBlock/ContentBlock';
 import Aux from '../../hoc/Auxillary/Auxillary';
-import { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Component } from 'react';
+// import { Link } from 'react-router-dom';
+import cardVariants from './cardVariants';
 
 
-//needed to change something for git
-//blah blah blah
+//TODO:
+// - Populate the cards with relevant imgs
+// - Animate the slide-in of the cards to be staggered
+//      -- Probably through determining the grid location of the card and using that to inform the transition delay value
 
-class Projects extends Component {
-    state = {
-        smallScreen: false
-    }
+const Projects = () => {
 
-    componentDidMount = () => {
-        const widthCheck = window.innerWidth;
-        //console.log(`WidthCheck: ${widthCheck}`);
+    //--------//SMALL SCREEN HANDLING REMOVE FOR NOW AS CHANGED TO FUNCTIONAL COMPONENT//--------//
+    //SEE HERE TO ADD IT BACK IN BUT WITH useEffect: https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
 
-        // const heightCheck = document.body.scrollHeight;
+    // const state = useState({
+    //     smallScreen: false
+    // });
 
-        if (widthCheck <= 1000) {
-            this.smallScreenHandler();
-        }
-    }
+    // componentDidMount = () => {
+    //     const widthCheck = window.innerWidth;
+    //     //console.log(`WidthCheck: ${widthCheck}`);
 
-    smallScreenHandler() {
-        this.setState({ smallScreen: true });
-        // console.log(this.state.smallScreen);
-    }
+    //     // const heightCheck = document.body.scrollHeight;
 
+    //     if (widthCheck <= 1000) {
+    //         smallScreenHandler();
+    //     }
+    // }
 
-    render() {
-        //console.log(this.state.smallScreen);
-        if (this.state.smallScreen) {
-            return (
-                <Aux>
-                    <ContentBlock
-                        className={classes.ProjectsContentBlock}
-                        backgroundColour={'linear-gradient(454deg, #9574ff, #ff5353)'}
-                    >
-                        <div className={classes.Projects}>
-                            <div className={classes.MindMape}>
-                                <div className={classes.Blurb}>
-                                    <Link
-                                        className={classes.MindMapeLink}
-                                        to="/mindmape"
-                                    >
-                                        <h1>MindMape</h1>
-                                    </Link>
-                                    <p>A blogging website I developed with a team of three others as the final project in my PostGraduate Certificate in Information Technology.</p>
-                                </div>
-                                <img src={MindMapeImg} alt="MindMapeImg" />
-                            </div>
-                        </div>
-                    </ContentBlock>
+    // const smallScreenHandler = () => {
+    //     this.setState({ smallScreen: true });
+    //     // console.log(this.state.smallScreen);
+    // }
 
-                    <ContentBlock
-                        className={classes.ProjectsContentBlock}
-                        backgroundColour={'linear-gradient(454deg, #9574ff, #ff5353)'}
-                    >
-                        <div className={classes.Projects}>
+     // render() {
+//------------------------------------------------------------------------------------------------//
+    
+    // const scrollRef = useRef(null);
 
-                            <div className={classes.BurgerBuilder}>
-                                <img src={BurgerBuilderImg} alt="BurgerBuilderImg" />
-                                <div className={classes.Blurb}>
-                                    <Link
-                                        className={classes.BurgerBuilderLink}
-                                        to="/burgerbuilder"
-                                    >
-                                        <h1>BurgerBuilder</h1>
-                                    </Link>
-                                    <p>Hungry? I created a BurgerBuilder webapp in the Udemy React course by AcadeMind.</p>
-                                </div>
-
-                            </div>
-                        </div>
-                    </ContentBlock>
-
-                    <ContentBlock
-                        className={classes.ProjectsContentBlock}
-                        backgroundColour={'linear-gradient(454deg, #9574ff, #ff5353)'}
-                    >
-                        <div className={classes.Projects}>
-
-                            <div className={classes.ThisWebsite}>
-                                <div className={classes.Blurb}>
-                                    <h1>This Website!</h1>
-                                    <p>The page you are currently on was also developed with React!</p>
-                                </div>
-                                <img src={ThisWebsiteImg} alt="ThisWebsiteImg" />
-                            </div>
-                        </div>
-                    </ContentBlock>
-                </Aux >
-            )
+    const controls = useAnimation();
+    const [scrollRef, inView] = useInView();
+    useEffect(() => {
+        if (inView) {
+            controls.start("onscreen");
         } else {
-
-            return (
-                <Aux>
-                    <ContentBlock
-                        className={classes.ProjectsContentBlock}
-                        backgroundColour={'linear-gradient(454deg, #9574ff, #ff5353)'}
-                    >
-                        <div className={classes.Projects}>
-                            <div className={classes.MindMape}>
-                                <div className={classes.Blurb}>
-                                    <Link
-                                        className={classes.MindMapeLink}
-                                        to="/mindmape"
-                                    >
-                                        <h1>MindMape</h1>
-                                    </Link>
-                                    <p>A blogging website I developed with a team of three others as the final project in my PostGraduate Certificate in Information Technology.</p>
-                                </div>
-                                <img src={MindMapeImg} alt="MindMapeImg" />
-                            </div>
-                            <div className={classes.BurgerBuilder}>
-                                <img src={BurgerBuilderImg} alt="BurgerBuilderImg" />
-                                <div className={classes.Blurb}>
-                                    <Link
-                                        className={classes.BurgerBuilderLink}
-                                        to="/burgerbuilder"
-                                    >
-                                        <h1>BurgerBuilder</h1>
-                                    </Link>
-                                    <p>Hungry? I created a BurgerBuilder webapp in the Udemy React course by AcadeMind.</p>
-                                </div>
-
-                            </div>
-                            <div className={classes.ThisWebsite}>
-                                <div className={classes.Blurb}>
-                                    <h1>This Website!</h1>
-                                    <p>The page you are currently on was also developed with React!</p>
-                                </div>
-                                <img src={ThisWebsiteImg} alt="ThisWebsiteImg" />
-                            </div>
-                        </div>
-                    </ContentBlock>
-                </Aux>
-            )
+            controls.start("offscreen");
         }
-    }
+    }, [controls, inView]);
+
+    // const staggerCards = stagger(0.1);
+
+    return (
+        <Aux>
+            <div className={classes.ProjectsContentBlock}>
+                <h1 className={classes.ProjectsContentBlockHeader}>Projects</h1>
+                <div className={classes.ProjectCardContainer} ref={scrollRef}>
+                    <ProjectCard 
+                        controls={controls} 
+                        text="MindMape"
+                        cardVariants={cardVariants.cardVariantsCol1}
+                        // scrollRef={scrollRef}
+                    />
+                    <ProjectCard 
+                        controls={controls} 
+                        text="BurgerBuilder"
+                        cardVariants={cardVariants.cardVariantsCol2}
+                    />
+                    <ProjectCard 
+                        controls={controls} 
+                        text="React Native Meals App"
+                        cardVariants={cardVariants.cardVariantsCol3}
+                    />
+                    <ProjectCard 
+                        controls={controls} 
+                        text="Next.js + bored API"
+                        cardVariants={cardVariants.cardVariantsCol1}
+                    />
+                    <ProjectCard 
+                        controls={controls} 
+                        text="Some other thing"
+                        cardVariants={cardVariants.cardVariantsCol2}
+                    />
+                    <ProjectCard 
+                        controls={controls} 
+                        text="Some other thing"
+                        cardVariants={cardVariants.cardVariantsCol3}
+                    />
+                    <ProjectCard 
+                        controls={controls} 
+                        text="Some other thing"
+                        cardVariants={cardVariants.cardVariantsCol1}
+                    />
+                    <ProjectCard 
+                        controls={controls} 
+                        text="The last thing"
+                        cardVariants={cardVariants.cardVariantsCol2}
+                    />
+                </div>
+            </div>
+            {/* </ContentBlock> */}
+        </Aux>
+    )
 }
+// }
+// }
 
 export default Projects;

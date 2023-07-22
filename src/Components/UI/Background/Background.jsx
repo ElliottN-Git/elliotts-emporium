@@ -11,11 +11,8 @@ const Background = (props) => {
     if (props.backgroundType === 'image') {
         bgStyle = {backgroundImage: `url(${props.backgroundImage})`}
     } else if(props.backgroundColour) {
-        console.log(props.backgroundColour);
         bgStyle = {background: `${props.backgroundColour}`};
     }
-
-    // let bgStyle = {background: `${props.backgroundColour}`};
 
     return (
         <div
