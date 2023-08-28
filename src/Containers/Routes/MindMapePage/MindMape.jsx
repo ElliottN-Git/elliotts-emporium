@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 //CSS and assets
 import classes from './MindMape.module.css';
-import blockOneImage from '../../../assets/images/MindMape/mindMapeHeader.png';
+// import blockOneImage from '../../../assets/images/MindMape/mindMapeHeader.png';
 import signUpImage from '../../../assets/images/MindMape/signUpFormHalfWidth.png';
 import gitBranchingImage from '../../../assets/images/MindMape/git-branching-model-croppedjpg.jpg';
 import databasePlanImage from '../../../assets/images/MindMape/mindMape ERD v2.1.png';
@@ -74,9 +74,21 @@ class MindMape extends Component {
         return (
             <Aux>
                 <ContentBlock topBlock={true}>
-                    <div className={classes.CB1}>
-                        <div className={classes.CB1Background} style={{ backgroundImage: `url(${blockOneImage})` }}>
+                    <div className={classes.CB0}>
+                        {/* <div className={classes.CB0Background} style={{ backgroundImage: `url(${blockOneImage})` }}>
+                        </div> */}
+                        <div className={classes.LaunchCard}>
+                            <h1>Welcome To mindMAPE</h1>
+                            <a href='/mindmapeProper'><h2>Click here to try it out</h2></a>
+                            <h2>...Or keep scrolling to read how it was built!</h2>
                         </div>
+                    </div>
+                </ContentBlock>
+
+                <ContentBlock topBlock={true}>
+                    <div className={classes.CB1}>
+                        {/* <div className={classes.CB1Background} style={{ backgroundImage: `url(${blockOneImage})` }}> */}
+                        {/* </div> */}
                         <div className={classes.CB1Text}>
                             <h1>The Brief</h1>
                             <h2>Create a blogging platform with the following features:</h2>

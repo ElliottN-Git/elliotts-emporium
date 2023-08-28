@@ -8,6 +8,7 @@ import Layout from './Containers//Layout/Layout';
 import Home from './Containers/Routes/Home'
 import ResumePage from './Containers/Routes/ResumePage/ResumePage';
 import MindMapePage from './Containers/Routes/MindMapePage/MindMape';
+import MindMapeLink from './Containers/Routes/MindMapeProper/MindMapeProper';
 import BurgerBuilder from './Containers/Routes/BurgerBuilderPage/BurgerBuilder';
 import NextJSandAPIs from './Containers/Routes/NextJSandAPIsPage/NextJSandAPIs';
 
@@ -55,6 +56,10 @@ class App extends Component {
                   component={MindMapePage}
                   key="mindmape"
                 />
+
+                <Route path='/mindmapeProper' component={MindMapeLink}
+                />
+
 
                 <Route path='/burgerbuilder' component={BurgerBuilder}
                 />
