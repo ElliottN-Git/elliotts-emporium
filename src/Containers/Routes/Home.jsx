@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 //CSS and assets
 // import aboutMeBackgroundImage from '../../assets/images/chemistrybg.jpg';
 
