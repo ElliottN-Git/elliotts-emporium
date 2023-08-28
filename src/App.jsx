@@ -9,6 +9,7 @@ import Home from './Containers/Routes/Home'
 import ResumePage from './Containers/Routes/ResumePage/ResumePage';
 import MindMapePage from './Containers/Routes/MindMapePage/MindMape';
 import BurgerBuilder from './Containers/Routes/BurgerBuilderPage/BurgerBuilder';
+import NextJSandAPIs from './Containers/Routes/NextJSandAPIsPage/NextJSandAPIs';
 
 class App extends Component {
   state = {
@@ -56,6 +57,9 @@ class App extends Component {
                 />
 
                 <Route path='/burgerbuilder' component={BurgerBuilder}
+                />
+
+                <Route path='/nextjsandapis' component={NextJSandAPIs}
                 />
 
                 <Route render={() => <h1 style={{ position: 'absolute', top: '40%', color: 'whitesmoke' }}>404: Page not found</h1>} />

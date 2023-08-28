@@ -1,9 +1,9 @@
-const BurgerBuilder = () => {
-    window.location.replace('https://burgerbuilder-64552.firebaseapp.com/');
+const NextJSandAPIs = () => {
+    window.location.replace('https://nextjs-and-apis.web.app/');
     return null;
 }
 
-export default BurgerBuilder;
+export default NextJSandAPIs;
 
 // import axios from 'axios';
 

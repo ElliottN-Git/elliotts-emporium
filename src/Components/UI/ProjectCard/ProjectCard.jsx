@@ -1,11 +1,15 @@
 //Modules
 import React from 'react';
 // import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 // import { useInView } from "react-intersection-observer";
 
 //CSS
 import classes from './ProjectCard.module.css';
+
+//Assets
+
 
 //Components
 import Aux from '../../../hoc/Auxillary/Auxillary';
@@ -25,24 +29,35 @@ const ProjectCard = (props) => {
     //     }
     // }, [controls, inView]);
 
+    // let img;
+    let cardImageElement;
+    try {
+        // img = require(`../../../assets/images/${props.cardImage}`);
+        cardImageElement = (<img src={require(`../../../assets/images/${props.cardImage}`)} alt=''></img>);
+    } catch {
+        cardImageElement = '';
+    }
 
+
+    let layout = <motion.div className={classes.ProjectCard}
+        animate={props.controls}
+        variants={props.cardVariants}
+        initial={props.cardVariants.offscreen}
+            // whileInView={props.cardVariants.onscreen}
+            // viewport={{ root: props.scrollRef }}
+            // viewport={{ once: true }}
+    >
+        <h3>{props.text}</h3>
+        {cardImageElement}
+    </motion.div>
+
+    if(props.link !== '') {
+        layout = <Link to={props.link} className={classes.ProjectLink}>{layout}</Link>
+    }
+    
     return (
         <Aux>
-            {/* <div ref={soloRef} style={{background: 'black', position: 'relative', height: '100px', width: '100px', top: '500px'}}></div>
-            <div className={classes.CardScrollViewRef} /*ref={soloRef}> */}
-            <motion.div className={classes.ProjectCard}
-                animate={props.controls}
-                variants={props.cardVariants}
-                initial={props.cardVariants.offscreen}
-                // whileInView={props.cardVariants.onscreen}
-                // viewport={{ root: props.scrollRef }}
-                // viewport={{ once: true }}
-            >
-                {/* <h3>MindMAPE</h3> */}
-                <h3>{props.text}</h3>
-            </motion.div>
-            {/* </div> */}
-
+            {layout}
         </Aux>
     )
 }

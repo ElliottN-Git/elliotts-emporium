@@ -7,11 +7,52 @@
 }
 
 .ProjectCard {
-    background-color: rgb(183, 183, 183);
-    width: 25vw;
+    /* background-color: rgb(183, 183, 183); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: whitesmoke;
     height: 33vh;
-    justify-self: center;
     font-size: 1.8vw;
     border-radius: 5px;
     overflow: hidden;
+    grid-column: span 2;
+}
+
+/* Dealing with 2 orphan items */
+.ProjectCard:last-child:nth-child(3n - 1) {
+    grid-column-end: -2;
+  }
+  
+  .ProjectCard:nth-last-child(2):nth-child(3n + 1) {
+    grid-column-end: 4;
+  }
+  
+  /* Dealing with single orphan */
+  .ProjectCard:last-child:nth-child(3n - 2) {
+    grid-column-end: 5;
+  }
+
+.ProjectCard h3 {
+    margin: 15px 5px 15px 5px;
+    font-family: century-gothic, AppleGothic, Arial, sans-serif;
+    font-weight: 200;
+    font-size: 3vmin;
+}
+
+.ProjectCard img {
+    /* width: span 1; */
+    max-width: 25vw;
+    height: auto;
+    object-fit: contain;
+}
+
+.ProjectLink {
+    /* max-width: 25vw; */
+    /* max-height: 33vh; */
+    text-decoration: none;
+    color: black;
+    grid-column: span 2;
 }

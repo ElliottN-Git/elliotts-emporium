@@ -5,14 +5,9 @@ import { useInView } from "react-intersection-observer";
 
 //CSS and Assets
 import classes from './Projects.module.css';
-// import projectsBackgroundImage from '../../assets/images/testDynamicBG.jpg'
-// import MindMapeImg from '../../assets/images/MindMape/loginpage.png';
-// import BurgerBuilderImg from '../../assets/images/BurgerBuilder/BuildPage.png';
-// import ThisWebsiteImg from '../../assets/images/ThisWebsite/thisSiteFaviconBig.png';
 import ProjectCard from '../../Components/UI/ProjectCard/ProjectCard.jsx';
 
 //Components
-// import ContentBlock from '../ContentBlock/ContentBlock';
 import Aux from '../../hoc/Auxillary/Auxillary';
 // import { Component } from 'react';
 // import { Link } from 'react-router-dom';
@@ -20,13 +15,13 @@ import cardVariants from './cardVariants';
 
 
 //TODO:
-// - Populate the cards with relevant imgs
+// - Populate the cards with relevant imgs - DONE
 // - Animate the slide-in of the cards to be staggered
 //      -- Probably through determining the grid location of the card and using that to inform the transition delay value
 
 const Projects = () => {
 
-    //--------//SMALL SCREEN HANDLING REMOVE FOR NOW AS CHANGED TO FUNCTIONAL COMPONENT//--------//
+    //--------//SMALL SCREEN HANDLING REMOVED FOR NOW AS CHANGED TO FUNCTIONAL COMPONENT//--------//
     //SEE HERE TO ADD IT BACK IN BUT WITH useEffect: https://stackoverflow.com/questions/53945763/componentdidmount-equivalent-on-a-react-function-hooks-component
 
     // const state = useState({
@@ -49,9 +44,9 @@ const Projects = () => {
     //     // console.log(this.state.smallScreen);
     // }
 
-     // render() {
-//------------------------------------------------------------------------------------------------//
-    
+    // render() {
+    //------------------------------------------------------------------------------------------------//
+
     // const scrollRef = useRef(null);
 
     const controls = useAnimation();
@@ -66,55 +61,45 @@ const Projects = () => {
 
     // const staggerCards = stagger(0.1);
 
+    const projectCards = [
+        { id: 1, title: 'MindMape', link: '/MindMAPE', image: 'MindMape/WriteArticle.png'},
+        { id: 2, title: 'BurgerBuilder', link: '/BurgerBuilder', image: 'BurgerBuilder/BuildPage.png'},
+        { id: 3, title: 'Next.js + Bored API', link: '', image: 'boredAPI.png'},
+        { id: 4, title: 'React Native Meals App', link: '', image: ''},
+         //link: '/NextJSandAPIs',
+        { id: 5, title: 'More coming soon!', link: '', image: ''},
+        // { id: 6, title: 'Another thing', link: '/', image: ''},
+        // { id: 7, title: 'Last thing', link: '/', image: ''}
+    ]
+
     return (
         <Aux>
             <div className={classes.ProjectsContentBlock}>
                 <h1 className={classes.ProjectsContentBlockHeader}>Projects</h1>
                 <div className={classes.ProjectCardContainer} ref={scrollRef}>
-                    <ProjectCard 
-                        controls={controls} 
-                        text="MindMape"
-                        cardVariants={cardVariants.cardVariantsCol1}
-                        // scrollRef={scrollRef}
-                    />
-                    <ProjectCard 
-                        controls={controls} 
-                        text="BurgerBuilder"
-                        cardVariants={cardVariants.cardVariantsCol2}
-                    />
-                    <ProjectCard 
-                        controls={controls} 
-                        text="React Native Meals App"
-                        cardVariants={cardVariants.cardVariantsCol3}
-                    />
-                    <ProjectCard 
-                        controls={controls} 
-                        text="Next.js + bored API"
-                        cardVariants={cardVariants.cardVariantsCol1}
-                    />
-                    <ProjectCard 
-                        controls={controls} 
-                        text="Some other thing"
-                        cardVariants={cardVariants.cardVariantsCol2}
-                    />
-                    <ProjectCard 
-                        controls={controls} 
-                        text="Some other thing"
-                        cardVariants={cardVariants.cardVariantsCol3}
-                    />
-                    <ProjectCard 
-                        controls={controls} 
-                        text="Some other thing"
-                        cardVariants={cardVariants.cardVariantsCol1}
-                    />
-                    <ProjectCard 
-                        controls={controls} 
-                        text="The last thing"
-                        cardVariants={cardVariants.cardVariantsCol2}
-                    />
+
+                    {/* Determine which column variant properties should be used given the index of the card */}
+                    {projectCards.map((card, index) => {
+                        let col = (index + 1) % 3;
+                        if (col === 0) {
+                            col = 3;
+                        }
+                        let cardVariantCol = "cardVariantsCol" + col;
+
+                        return (
+                            <ProjectCard
+                                controls={controls}
+                                cardVariants={cardVariants[cardVariantCol]}
+                                key={card.id}
+                                text={card.title}
+                                link={card.link}
+                                cardImage={card.image}
+                                tag={card.tag}
+                            />
+                        )
+                    })}
                 </div>
             </div>
-            {/* </ContentBlock> */}
         </Aux>
     )
 }
